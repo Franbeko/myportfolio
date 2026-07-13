@@ -71,10 +71,9 @@ const FAQ = ({ darkMode }) => {
                 className="faq-memoji"
               />
             </div>
-            <h2 className="faq-left-title">Got Questions? I've Got Answers!</h2>
+            <h2 className="faq-left-title">Got Questions? I'm Here to Help!</h2>
             <p className="faq-left-subtitle">
-              Here are common questions about my work and process. 
-              Feel free to reach out if you have more questions!
+              Find answers to common questions about my work, process, and how we can collaborate.
             </p>
             <div className="faq-left-divider"></div>
             <p className="faq-left-footer">
