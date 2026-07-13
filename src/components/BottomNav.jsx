@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FaHome, FaFolder, FaUser, FaPhone } from 'react-icons/fa';
+import { IoIosContact } from "react-icons/io";
 
 const BottomNav = ({ darkMode }) => {
     const [activeSection, setActiveSection] = useState('home');
@@ -40,7 +41,7 @@ const BottomNav = ({ darkMode }) => {
                     <span className="bottom-nav-label">Projects</span>
                 </a>
                 <a href="#contact" className={`bottom-nav-link ${activeSection === 'contact' ? 'active' : ''}`}>
-                    <FaPhone className="bottom-nav-icon" />
+                    <IoIosContact className="bottom-nav-icon" />
                     <span className="bottom-nav-label">Contact</span>
                 </a>
             </div>
