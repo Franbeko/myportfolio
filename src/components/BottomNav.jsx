@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FaHome, FaFolder, FaUser, FaPhone } from 'react-icons/fa';
+import { FaHome, FaFolder, FaUser } from 'react-icons/fa';
 import { IoIosContact } from "react-icons/io";
 
 const BottomNav = ({ darkMode }) => {
