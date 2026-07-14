@@ -11,6 +11,7 @@ const MarqueeSlider = ({ darkMode }) => {
     { id: 5, image: '/projects/project5.png' },
     { id: 6, image: '/projects/project6.png' },
     { id: 7, image: '/projects/project7.png' },
+    { id: 8, image: '/projects/project8.png' },
   ];
 
   // Duplicate projects for seamless loop (needs at least 2 sets)

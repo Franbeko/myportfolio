@@ -18,7 +18,8 @@ import {
   SiMysql,
   SiPhpmyadmin,
   SiVercel,
-  SiWordpress
+  SiWordpress,
+  SiTailwindcss
 } from 'react-icons/si';
 
 // Generate random values outside the component (only once when file loads)
@@ -35,7 +36,7 @@ const generateRandomOffsets = (count) => {
   return result;
 };
 
-// Tech stack icons - defined outside component
+// Tech stack icons
 const techs = [
   { name: 'React', icon: <FaReact />, color: '#61DAFB' },
   { name: 'Vite', icon: <SiVite />, color: '#646CFF' },
@@ -45,6 +46,7 @@ const techs = [
   { name: 'Next.js', icon: <SiNextdotjs />, color: '#000000' },
   { name: 'HTML5', icon: <FaHtml5 />, color: '#E34F26' },
   { name: 'CSS', icon: <FaCss3Alt />, color: '#1572B6' },
+  { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: '#1572B6' },
   { name: 'JavaScript', icon: <FaJsSquare />, color: '#F7DF1E' },
   { name: 'PHP', icon: <FaPhp />, color: '#777BB4' },
   { name: 'PhpMyAdmin', icon: <SiPhpmyadmin />, color: '#6C78AF' },
@@ -53,7 +55,6 @@ const techs = [
   { name: 'GitHub', icon: <FaGithub />, color: '#181717' },
   { name: 'Vercel', icon: <SiVercel />, color: '#000000' },
   { name: 'WordPress', icon: <SiWordpress />, color: '#21759B' },
-  { name: 'SharePoint', icon: <FaCode />, color: '#0078D4' },
   { name: 'Axure', icon: <FaCode />, color: '#33B3FF' },
 ];
 
@@ -69,7 +70,7 @@ const TechStack = ({ darkMode }) => {
   // Create floating animation with controlled spacing
   const getFloatingStyle = (index) => {
     const total = techs.length;
-    // Distribute icons evenly in a circle with larger radius for more spacing
+    // Distribute icons evenly
     const angle = (index / total) * 360 - 90;
     const radius = 120;
     const x = Math.cos((angle * Math.PI) / 180) * radius;

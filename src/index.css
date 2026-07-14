@@ -515,7 +515,7 @@ section {
 }
 
 /* ============================================
-   MARQUEE SLIDER (Double Marquee Effect)
+   MARQUEE SLIDER
    ============================================ */
 .marquee-slider {
   padding: 5rem 2rem;
@@ -731,7 +731,7 @@ section {
   margin-bottom: 0.8rem;
 }
 
-/* Memoji Image in Value Card - Larger Size */
+/* Memoji Image */
 .value-memoji-img {
   width: 80px;
   height: 80px;
@@ -759,7 +759,7 @@ section {
   color: #0a0a0a;
 }
 
-/* Tech Stack Card - Gentle Floating Version */
+/* Tech Stack Card */
 .tech-stack-card {
   min-height: 280px;
   position: relative;
@@ -869,7 +869,7 @@ section {
 }
 
 /* ============================================
-   TECH STACK SECTION (Floating Icons)
+   TECH STACK SECTION
    ============================================ */
 .tech-stack-section {
   padding: 5rem 2rem;
@@ -1089,7 +1089,7 @@ section {
   font-weight: 500;
 }
 
-/* Skills Section - Card Style */
+/* Skills Section */
 .skills-section {
   margin: 3rem 0;
   padding: 2rem;
@@ -1298,7 +1298,7 @@ section {
 }
 
 /* ============================================
-   PROJECTS SECTION - SLIDER VERSION
+   PROJECTS SECTION
    ============================================ */
 .projects-section {
   padding: 5rem 2rem;

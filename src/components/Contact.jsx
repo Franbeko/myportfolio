@@ -19,7 +19,7 @@ const Contact = ({ darkMode }) => {
   const [errors, setErrors] = useState({});
   const modalRef = useRef(null);
 
-  // Formspree form ID - Your actual form ID
+  // Formspree form ID
   const FORMSPREE_ID = 'xpqvzakj';
 
   const handleInputChange = (e) => {

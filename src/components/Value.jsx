@@ -88,7 +88,7 @@ const Value = ({ darkMode }) => {
     const total = techIcons.length;
     // Distribute icons evenly in a circle with SMALL radius
     const angle = (index / total) * 360 - 90;
-    const radius = 80; // Small radius for tight, contained movement
+    const radius = 80;
     const x = Math.cos((angle * Math.PI) / 180) * radius;
     const y = Math.sin((angle * Math.PI) / 180) * radius;
     
