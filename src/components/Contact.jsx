@@ -132,7 +132,7 @@ const Contact = ({ darkMode }) => {
             <div className="contact-right">
               <div className="contact-memoji-container">
                 <img 
-                  src="/francis-thumbsup.png" 
+                  src="/memojis/francis-thumbsup.png" 
                   alt="Francis" 
                   className="contact-memoji"
                 />

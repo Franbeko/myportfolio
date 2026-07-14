@@ -64,22 +64,22 @@ const Value = ({ darkMode }) => {
     {
       id: 1,
       title: 'Over 3+ years of experience',
-      icon: '/francis-memoji.png'
+      icon: '/memojis/francis-memoji.png'
     },
     {
       id: 2,
       title: 'Team leadership & collaboration',
-      icon: '/francis-laptop.png'
+      icon: '/memojis/francis-laptop.png'
     },
     {
       id: 3,
       title: 'Problems Solving with Innovative Solutions',
-      icon: '/francis-thinking.png'
+      icon: '/memojis/francis-thinking.png'
     },
     {
       id: 4,
       title: 'Ideas brought to life through code',
-      icon: '/francis-coding.png'
+      icon: '/memojis/francis-coding.png'
     }
   ];
 

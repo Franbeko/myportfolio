@@ -18,7 +18,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
         {/* Left side */}
         <div className="header-left">
           <img 
-            src="/francis-memoji.png"
+            src="/memojis/francis-memoji.png"
             alt="Francis" 
             className="header-avatar"
           />

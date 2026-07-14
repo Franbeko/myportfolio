@@ -60,7 +60,7 @@ const About = ({ darkMode }) => {
           {/* Memoji Image */}
           <div className="about-memoji-container">
             <img 
-              src="/francis-memoji.png" 
+              src="/memojis/francis-memoji.png" 
               alt="Francis" 
               className="about-memoji"
             />

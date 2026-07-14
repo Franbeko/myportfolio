@@ -66,7 +66,7 @@ const FAQ = ({ darkMode }) => {
           <div className="faq-left">
             <div className="faq-memoji-container">
               <img 
-                src="/francis-faq.png" 
+                src="/memojis/francis-faq.png" 
                 alt="Francis" 
                 className="faq-memoji"
               />

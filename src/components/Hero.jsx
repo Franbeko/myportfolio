@@ -33,7 +33,7 @@ const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
           <div className="hero-avatar-container">
             <div className="avatar-wrapper">
               <img 
-                src="/francis-memoji.png" 
+                src="/memojis/francis-memoji.png" 
                 alt="Francis" 
                 className="hero-avatar"
               />
