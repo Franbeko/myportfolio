@@ -127,7 +127,7 @@ const About = ({ darkMode }) => {
 
               <div className="resume-download">
                 <a 
-                  href="/resume/Francis_Kojo_Haizel_Resume_pdf.pdf" 
+                  href="/resume/Francis_Kojo_Haizel_Resume.pdf.pdf" 
                   download 
                   className="resume-btn"
                 >
