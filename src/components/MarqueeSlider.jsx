@@ -1,17 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const MarqueeSlider = ({ darkMode }) => {
   const [isPaused, setIsPaused] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   const projects = [
     { id: 1, image: '/projects/project1.png', title: 'Project 1' },
@@ -24,15 +14,14 @@ const MarqueeSlider = ({ darkMode }) => {
     { id: 8, image: '/projects/project8.png', title: 'Project 8' },
   ];
 
-  // For mobile, use fewer items in the loop for better performance
-  const getDisplayProjects = () => {
-    const count = isMobile ? 4 : 8;
-    return projects.slice(0, count);
-  };
+  // Split projects into two rows for better visual distribution
+  const firstRowProjects = projects.slice(0, Math.ceil(projects.length / 2));
+  const secondRowProjects = projects.slice(Math.ceil(projects.length / 2));
 
-  const displayProjects = getDisplayProjects();
-  // Need at least 3 copies for seamless loop
-  const doubledProjects = [...displayProjects, ...displayProjects, ...displayProjects];
+  // Duplicate projects for seamless infinite scroll
+  // Need 3 copies for seamless loop
+  const duplicateFirstRow = [...firstRowProjects, ...firstRowProjects, ...firstRowProjects];
+  const duplicateSecondRow = [...secondRowProjects, ...secondRowProjects, ...secondRowProjects];
 
   // Handle pause on hover/touch
   const handleMouseEnter = () => setIsPaused(true);
@@ -43,12 +32,14 @@ const MarqueeSlider = ({ darkMode }) => {
   return (
     <section className={`marquee-slider ${darkMode ? 'dark' : 'light'}`}>
       <div className="marquee-container">
-        {/* Section Title */}
-        <h2 className="section-title">What's Chosen Me?</h2>
-        <p className="section-subtitle">
-          Projects that have shaped my journey and fueled my passion for technology
-        </p>
-        
+        {/* Section Header */}
+        <div className="marquee-header">
+          <h2 className="section-title">What's Chosen Me?</h2>
+          <p className="section-subtitle">
+            Projects that have shaped my journey and fueled my passion for technology
+          </p>
+        </div>
+
         {/* First Row - Moving Left */}
         <div 
           className="marquee-wrapper"
@@ -58,7 +49,7 @@ const MarqueeSlider = ({ darkMode }) => {
           onTouchEnd={handleTouchEnd}
         >
           <div className={`marquee-track marquee-left ${isPaused ? 'paused' : ''}`}>
-            {doubledProjects.map((project, index) => (
+            {duplicateFirstRow.map((project, index) => (
               <div key={`left-${index}`} className="marquee-item">
                 <div className="marquee-image-wrapper">
                   <img 
@@ -88,7 +79,7 @@ const MarqueeSlider = ({ darkMode }) => {
           onTouchEnd={handleTouchEnd}
         >
           <div className={`marquee-track marquee-right ${isPaused ? 'paused' : ''}`}>
-            {doubledProjects.map((project, index) => (
+            {duplicateSecondRow.map((project, index) => (
               <div key={`right-${index}`} className="marquee-item">
                 <div className="marquee-image-wrapper">
                   <img 
