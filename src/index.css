@@ -2467,7 +2467,214 @@ section {
 }
 
 /* ============================================
-   RESPONSIVE
+   MARQUEE MOBILE RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .marquee-slider {
+    padding: 3rem 1rem;
+  }
+
+  .marquee-item {
+    flex: 0 0 200px;
+    height: 150px;
+  }
+
+  .marquee-track {
+    gap: 1rem;
+  }
+
+  .marquee-left {
+    animation-duration: 20s;
+  }
+
+  .marquee-right {
+    animation-duration: 20s;
+  }
+
+  .marquee-title {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .marquee-slider {
+    padding: 2rem 0.5rem;
+  }
+
+  .marquee-wrapper {
+    padding: 0.5rem 0;
+  }
+
+  .marquee-item {
+    flex: 0 0 140px;
+    height: 110px;
+    border-radius: 8px;
+  }
+
+  .marquee-track {
+    gap: 0.8rem;
+  }
+
+  .marquee-left {
+    animation-duration: 15s;
+  }
+
+  .marquee-right {
+    animation-duration: 15s;
+  }
+
+  .marquee-overlay {
+    padding: 0.5rem;
+  }
+
+  .marquee-title {
+    font-size: 0.6rem;
+  }
+
+  .marquee-image-wrapper {
+    border-radius: 8px;
+  }
+}
+
+/* ============================================
+   PROJECTS MOBILE RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 3rem 1rem;
+  }
+
+  .projects-slider-wrapper {
+    gap: 1rem;
+  }
+
+  .projects-slider-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.8rem;
+  }
+
+  .projects-slider-track {
+    min-height: 380px;
+  }
+
+  .project-card {
+    max-width: 100%;
+  }
+
+  .project-image-container {
+    height: 200px;
+  }
+
+  .project-info {
+    padding: 1rem;
+  }
+
+  .project-title {
+    font-size: 1rem;
+  }
+
+  .project-description {
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .project-tech-stack {
+    gap: 0.3rem;
+  }
+
+  .project-tech-tag {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .project-links {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .project-link {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-section {
+    padding: 2rem 0.5rem;
+  }
+
+  .projects-slider-wrapper {
+    gap: 0.5rem;
+  }
+
+  .projects-slider-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.7rem;
+  }
+
+  .projects-slider-track {
+    min-height: 320px;
+  }
+
+  .project-card {
+    border-radius: 8px;
+  }
+
+  .project-image-container {
+    height: 160px;
+  }
+
+  .project-title {
+    font-size: 0.9rem;
+  }
+
+  .project-description {
+    font-size: 0.8rem;
+  }
+
+  .project-tech-tag {
+    font-size: 0.55rem;
+    padding: 0.15rem 0.5rem;
+  }
+
+  .project-link {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  .project-info {
+    padding: 0.8rem;
+  }
+
+  .project-overlay {
+    background: rgba(0, 0, 0, 0.85);
+  }
+
+  .project-links {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .projects-slider-dots {
+    gap: 0.6rem;
+    margin-top: 0.8rem;
+  }
+
+  .projects-slider-dots .dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .projects-slider-dots .dot.active {
+    width: 24px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE (Existing)
    ============================================ */
 @media (max-width: 1024px) {
   .tech-stack-grid {
@@ -2667,27 +2874,6 @@ section {
     font-size: 0.9rem;
   }
 
-  .marquee-item {
-    flex: 0 0 200px;
-    height: 150px;
-  }
-  
-  .marquee-track {
-    gap: 1rem;
-  }
-  
-  .marquee-left {
-    animation-duration: 20s;
-  }
-  
-  .marquee-right {
-    animation-duration: 20s;
-  }
-  
-  .marquee-title {
-    font-size: 0.8rem;
-  }
-
   .value-grid {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 1rem;
@@ -2825,38 +3011,6 @@ section {
     font-size: 2rem;
   }
 
-  /* Projects Section Responsive */
-  .projects-slider-wrapper {
-    gap: 1rem;
-  }
-  
-  .projects-slider-btn {
-    width: 36px;
-    height: 36px;
-    font-size: 0.8rem;
-  }
-  
-  .projects-slider-track {
-    min-height: 380px;
-  }
-  
-  .project-image-container {
-    height: 200px;
-  }
-  
-  .project-link {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.85rem;
-  }
-  
-  .project-title {
-    font-size: 1.1rem;
-  }
-  
-  .project-description {
-    font-size: 0.9rem;
-  }
-
   /* FAQ Section Responsive */
   .faq-section {
     padding: 3rem 1rem;
@@ -2991,27 +3145,6 @@ section {
 }
 
 @media (max-width: 480px) {
-  .marquee-item {
-    flex: 0 0 160px;
-    height: 120px;
-  }
-  
-  .marquee-track {
-    gap: 0.8rem;
-  }
-  
-  .marquee-left {
-    animation-duration: 15s;
-  }
-  
-  .marquee-right {
-    animation-duration: 15s;
-  }
-  
-  .marquee-title {
-    font-size: 0.7rem;
-  }
-
   .value-grid {
     grid-template-columns: 1fr 1fr;
     gap: 0.8rem;
@@ -3126,53 +3259,6 @@ section {
   .resume-btn {
     padding: 0.5rem 1.2rem;
     font-size: 0.8rem;
-  }
-
-  /* Projects Section Responsive */
-  .projects-slider-wrapper {
-    gap: 0.5rem;
-  }
-  
-  .projects-slider-btn {
-    width: 32px;
-    height: 32px;
-    font-size: 0.7rem;
-  }
-  
-  .projects-slider-track {
-    min-height: 320px;
-  }
-  
-  .project-image-container {
-    height: 180px;
-  }
-  
-  .project-links {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-  
-  .project-link {
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
-    justify-content: center;
-  }
-  
-  .project-info {
-    padding: 1.2rem;
-  }
-  
-  .project-title {
-    font-size: 1rem;
-  }
-  
-  .project-description {
-    font-size: 0.85rem;
-  }
-  
-  .project-tech-tag {
-    font-size: 0.65rem;
-    padding: 0.2rem 0.6rem;
   }
 
   /* FAQ Section Responsive */
