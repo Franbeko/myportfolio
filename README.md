@@ -62,10 +62,10 @@ myportfolio/
 │   └── resume/       # Resume PDF
 ├── src/
 │   ├── components/   # React components
-│   ├── styles/       # CSS styles
 │   ├── App.jsx       # Main app component
 │   └── main.jsx      # Entry point
 ├── index.html        # HTML template
+├── index.css         # CSS Styles
 ├── package.json      # Dependencies
 └── vite.config.js    # Vite configuration
 📱 Connect With Me
@@ -73,7 +73,7 @@ Portfolio: franciskojohaizel.vercel.app
 
 GitHub: Franbeko
 
-LinkedIn: Francis Kojo Haizel
+LinkedIn: [Francis Kojo Haizel](https://www.linkedin.com/in/francis-haizel-373b96265/)
 
 📄 License
 This project is open source and available under the MIT License.
@@ -84,31 +84,3 @@ Built with React and Vite
 Icons by React Icons
 
 Hosted on Vercel
-
-
----
-
-## How to Update the README on GitHub:
-
-### Option 1: Directly on GitHub (Easiest)
-
-1. Go to: `https://github.com/Franbeko/myportfolio`
-2. Click on the **README.md** file
-3. Click the **pencil icon** (Edit) on the right
-4. Delete the current content and paste the new content above
-5. Scroll down and click **"Commit changes"**
-6. Add a commit message like `"Update README with portfolio description"`
-7. Click **"Commit changes"**
-
-### Option 2: Update Locally and Push
-
-1. Open your project in VS Code
-2. Open the `README.md` file
-3. Replace the content with the new README
-4. Save the file
-5. Push to GitHub:
-
-```bash
-git add README.md
-git commit -m "Update README with portfolio description"
-git push
