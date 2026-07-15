@@ -4,24 +4,18 @@ const MarqueeSlider = ({ darkMode }) => {
   const [isPaused, setIsPaused] = useState(false);
 
   const projects = [
-    { id: 1, image: '/projects/project1.png', title: 'Project 1' },
-    { id: 2, image: '/projects/project2.png', title: 'Project 2' },
-    { id: 3, image: '/projects/project3.png', title: 'Project 3' },
-    { id: 4, image: '/projects/project4.png', title: 'Project 4' },
-    { id: 5, image: '/projects/project5.png', title: 'Project 5' },
-    { id: 6, image: '/projects/project6.png', title: 'Project 6' },
-    { id: 7, image: '/projects/project7.png', title: 'Project 7' },
-    { id: 8, image: '/projects/project8.png', title: 'Project 8' },
+    { id: 1, image: '/projects/project1.png' },
+    { id: 2, image: '/projects/project2.png' },
+    { id: 3, image: '/projects/project3.png' },
+    { id: 4, image: '/projects/project4.png' },
+    { id: 5, image: '/projects/project5.png' },
+    { id: 6, image: '/projects/project6.png' },
+    { id: 7, image: '/projects/project7.png' },
+    { id: 8, image: '/projects/project8.png' },
   ];
 
-  // Split projects into two rows for better visual distribution
-  const firstRowProjects = projects.slice(0, Math.ceil(projects.length / 2));
-  const secondRowProjects = projects.slice(Math.ceil(projects.length / 2));
-
-  // Duplicate projects for seamless infinite scroll
-  // Need 3 copies for seamless loop
-  const duplicateFirstRow = [...firstRowProjects, ...firstRowProjects, ...firstRowProjects];
-  const duplicateSecondRow = [...secondRowProjects, ...secondRowProjects, ...secondRowProjects];
+  // Duplicate projects for seamless loop (needs at least 2 sets)
+  const doubledProjects = [...projects, ...projects, ...projects];
 
   // Handle pause on hover/touch
   const handleMouseEnter = () => setIsPaused(true);
@@ -32,14 +26,7 @@ const MarqueeSlider = ({ darkMode }) => {
   return (
     <section className={`marquee-slider ${darkMode ? 'dark' : 'light'}`}>
       <div className="marquee-container">
-        {/* Section Header */}
-        <div className="marquee-header">
-          <h2 className="section-title">What's Chosen Me?</h2>
-          <p className="section-subtitle">
-            Projects that have shaped my journey and fueled my passion for technology
-          </p>
-        </div>
-
+        
         {/* First Row - Moving Left */}
         <div 
           className="marquee-wrapper"
@@ -49,20 +36,19 @@ const MarqueeSlider = ({ darkMode }) => {
           onTouchEnd={handleTouchEnd}
         >
           <div className={`marquee-track marquee-left ${isPaused ? 'paused' : ''}`}>
-            {duplicateFirstRow.map((project, index) => (
+            {doubledProjects.map((project, index) => (
               <div key={`left-${index}`} className="marquee-item">
                 <div className="marquee-image-wrapper">
                   <img 
                     src={project.image} 
-                    alt={project.title || 'Project'}
+                    alt={project.title}
                     className="marquee-image"
-                    loading="lazy"
                     onError={(e) => {
-                      e.target.src = `https://via.placeholder.com/300x200/1a1a1a/64ffda?text=${project.title || 'Project'}`;
+                      e.target.src = 'https://via.placeholder.com/300x200/1a1a1a/64ffda?text=Project';
                     }}
                   />
                   <div className="marquee-overlay">
-                    <h4 className="marquee-title">{project.title || 'Project'}</h4>
+                    <h4 className="marquee-title">{project.title}</h4>
                   </div>
                 </div>
               </div>
@@ -79,20 +65,19 @@ const MarqueeSlider = ({ darkMode }) => {
           onTouchEnd={handleTouchEnd}
         >
           <div className={`marquee-track marquee-right ${isPaused ? 'paused' : ''}`}>
-            {duplicateSecondRow.map((project, index) => (
+            {doubledProjects.map((project, index) => (
               <div key={`right-${index}`} className="marquee-item">
                 <div className="marquee-image-wrapper">
                   <img 
                     src={project.image} 
-                    alt={project.title || 'Project'}
+                    alt={project.title}
                     className="marquee-image"
-                    loading="lazy"
                     onError={(e) => {
-                      e.target.src = `https://via.placeholder.com/300x200/1a1a1a/64ffda?text=${project.title || 'Project'}`;
+                      e.target.src = 'https://via.placeholder.com/300x200/1a1a1a/64ffda?text=Project';
                     }}
                   />
                   <div className="marquee-overlay">
-                    <h4 className="marquee-title">{project.title || 'Project'}</h4>
+                    <h4 className="marquee-title">{project.title}</h4>
                   </div>
                 </div>
               </div>
