@@ -7,10 +7,18 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  height: auto;
+  overflow-x: hidden;
 }
 
 /* ============================================
@@ -262,12 +270,13 @@ body {
    HERO SECTION
    ============================================ */
 .hero {
-  min-height: 100vh;
+  min-height: calc(100vh - 0px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6rem 2rem;
+  padding: 5rem 2rem;
   transition: background-color 0.3s ease;
+  margin: 0;
 }
 
 .hero.dark {
@@ -613,6 +622,7 @@ body {
    ============================================ */
 section {
   padding: 5rem 2rem;
+  margin: 0;
 }
 
 .section-title {
@@ -640,6 +650,7 @@ section {
   overflow: hidden;
   position: relative;
   min-height: 600px;
+  margin: 0;
 }
 
 .marquee-slider.dark {
@@ -676,11 +687,22 @@ section {
   margin-bottom: 3rem;
 }
 
+/* Desktop: 3 Columns */
 .marquee-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1.5rem;
-  height: 500px;
+  height: 550px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Mobile: Single Column - Only shows column 1 (moving UP) */
+.marquee-grid-single {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  height: 450px;
   overflow: hidden;
   position: relative;
 }
@@ -700,8 +722,10 @@ section {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   will-change: transform;
+  animation-play-state: running;
 }
 
+/* Default animation - always UP */
 .marquee-up {
   animation: marqueeUp 25s linear infinite;
 }
@@ -724,6 +748,7 @@ section {
   flex-shrink: 0;
   width: 100%;
   position: relative;
+  aspect-ratio: 4/3;
 }
 
 .marquee-slider.light .marquee-card {
@@ -768,7 +793,7 @@ section {
   display: none;
 }
 
-/* Optional: Add a subtle overlay on hover for visual feedback */
+/* Subtle overlay on hover for visual feedback */
 .marquee-card::after {
   content: '';
   position: absolute;
@@ -793,6 +818,7 @@ section {
 .value-section {
   padding: 5rem 2rem;
   transition: background-color 0.3s ease;
+  margin: 0;
 }
 
 .value-section.dark {
@@ -1023,6 +1049,7 @@ section {
 .tech-stack-section {
   padding: 5rem 2rem;
   transition: background-color 0.3s ease;
+  margin: 0;
 }
 
 .tech-stack-section.dark {
@@ -1160,6 +1187,7 @@ section {
 .about-section {
   padding: 5rem 2rem;
   transition: background-color 0.3s ease;
+  margin: 0;
 }
 
 .about-section.dark {
@@ -1452,6 +1480,7 @@ section {
 .projects-section {
   padding: 5rem 2rem;
   transition: background-color 0.3s ease;
+  margin: 0;
 }
 
 .projects-section.dark {
@@ -1732,6 +1761,7 @@ section {
 .faq-section {
   padding: 5rem 2rem;
   transition: background-color 0.3s ease;
+  margin: 0;
 }
 
 .faq-section.dark {
@@ -1969,6 +1999,7 @@ section {
 .contact-section {
   padding: 5rem 2rem;
   transition: background-color 0.3s ease;
+  margin: 0;
 }
 
 .contact-section.dark {
@@ -2319,6 +2350,7 @@ section {
   background: #0a0a0a;
   padding: 4rem 2rem 2rem;
   border-top: 1px solid #1a1a1a;
+  margin: 0;
 }
 
 .footer.light {
@@ -2616,23 +2648,27 @@ section {
 }
 
 /* ============================================
-   MARQUEE MOBILE RESPONSIVE - FULL IMAGE
+   MARQUEE MOBILE RESPONSIVE - FIXED (SINGLE COLUMN ONLY)
    ============================================ */
 
 /* Tablet */
 @media (max-width: 1024px) {
   .marquee-grid {
     grid-template-columns: 1fr 1fr;
-    height: 450px;
+    height: 500px;
     gap: 1.2rem;
   }
 
   .marquee-up {
-    animation-duration: 22s;
+    animation-duration: 25s;
   }
 
   .marquee-down {
-    animation-duration: 22s;
+    animation-duration: 25s;
+  }
+
+  .marquee-vertical {
+    gap: 1.2rem;
   }
 
   .tech-stack-grid {
@@ -2650,29 +2686,73 @@ section {
   }
 }
 
-/* Mobile Large */
+/* Mobile - ONLY SHOW SINGLE COLUMN MOVING UP */
 @media (max-width: 768px) {
   .marquee-slider {
     padding: 3rem 1rem;
     min-height: 500px;
   }
 
+  /* Hide the 3-column grid on mobile */
   .marquee-grid {
+    display: none !important;
+  }
+
+  /* Show single column grid on mobile */
+  .marquee-grid-single {
+    display: grid !important;
     grid-template-columns: 1fr;
-    height: 400px;
-    gap: 1rem;
+    height: 450px;
+    gap: 0;
   }
 
-  .marquee-up {
-    animation-duration: 20s;
+  /* Only show the first column (column 1) on mobile */
+  .marquee-grid-single .marquee-column {
+    display: block;
   }
 
-  .marquee-down {
-    animation-duration: 20s;
+  /* Hide columns 2 and 3 on mobile */
+  .marquee-grid-single .marquee-column:nth-child(2),
+  .marquee-grid-single .marquee-column:nth-child(3) {
+    display: none !important;
+  }
+
+  /* Single column always moves UP */
+  .marquee-grid-single .marquee-up {
+    animation-duration: 25s;
+  }
+
+  .marquee-grid-single .marquee-down {
+    animation-duration: 25s;
   }
 
   .marquee-vertical {
     gap: 1rem;
+  }
+
+  .marquee-card {
+    border-radius: 10px;
+    aspect-ratio: 4/3;
+    height: auto;
+    min-height: 200px;
+  }
+
+  .marquee-card-image-wrapper {
+    border-radius: 10px;
+  }
+
+  .marquee-header {
+    margin-bottom: 2rem;
+  }
+
+  .marquee-slider .section-title {
+    font-size: 2rem;
+  }
+
+  .marquee-slider .section-subtitle {
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .header {
@@ -3215,30 +3295,46 @@ section {
     min-height: 400px;
   }
 
-  .marquee-grid {
-    height: 350px;
-    gap: 0.8rem;
+  .marquee-grid-single {
+    height: 380px;
+    gap: 0;
   }
 
-  .marquee-up {
-    animation-duration: 18s;
+  .marquee-grid-single .marquee-up {
+    animation-duration: 25s;
   }
 
-  .marquee-down {
-    animation-duration: 18s;
+  .marquee-grid-single .marquee-down {
+    animation-duration: 25s;
   }
 
   .marquee-vertical {
     gap: 0.8rem;
   }
 
+  .marquee-card {
+    border-radius: 8px;
+    aspect-ratio: 4/3;
+    height: auto;
+    min-height: 160px;
+  }
+
+  .marquee-card-image-wrapper {
+    border-radius: 8px;
+  }
+
   .marquee-slider .section-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   .marquee-slider .section-subtitle {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     padding: 0 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .marquee-header {
+    margin-bottom: 1.5rem;
   }
 
   /* Hero Stats Mobile Small */
@@ -3585,16 +3681,30 @@ section {
 
 /* Extra Small */
 @media (max-width: 360px) {
-  .marquee-grid {
+  .marquee-slider {
+    min-height: 350px;
+  }
+
+  .marquee-grid-single {
     height: 300px;
+    gap: 0;
   }
 
-  .marquee-up {
-    animation-duration: 15s;
+  .marquee-grid-single .marquee-up {
+    animation-duration: 25s;
   }
 
-  .marquee-down {
-    animation-duration: 15s;
+  .marquee-grid-single .marquee-down {
+    animation-duration: 25s;
+  }
+
+  .marquee-vertical {
+    gap: 0.6rem;
+  }
+
+  .marquee-card {
+    border-radius: 6px;
+    min-height: 130px;
   }
 }
 

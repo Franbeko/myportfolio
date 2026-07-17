@@ -1,34 +1,107 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const MarqueeSlider = ({ darkMode }) => {
   const [isPaused, setIsPaused] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const marqueeRef = useRef(null);
+  const touchTimeoutRef = useRef(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    // Force animation to start on mount
+    const timer = setTimeout(() => {
+      if (marqueeRef.current) {
+        marqueeRef.current.style.animationPlayState = 'running';
+      }
+    }, 100);
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      clearTimeout(timer);
+      if (touchTimeoutRef.current) {
+        clearTimeout(touchTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const projects = [
-    { id: 1, image: '/projects/project1.png', },
-    { id: 2, image: '/projects/project2.png', },
-    { id: 3, image: '/projects/project3.png', },
-    { id: 4, image: '/projects/project4.png', },
-    { id: 5, image: '/projects/project5.png', },
-    { id: 6, image: '/projects/project6.png', },
-    { id: 7, image: '/projects/project7.png', },
-    { id: 8, image: '/projects/project8.png', },
+    { id: 1, image: '/projects/project1.png'},
+    { id: 2, image: '/projects/project2.png'},
+    { id: 3, image: '/projects/project3.png'},
+    { id: 4, image: '/projects/project4.png'},
+    { id: 5, image: '/projects/project5.png'},
+    { id: 6, image: '/projects/project6.png'},
+    { id: 7, image: '/projects/project7.png'},
+    { id: 8, image: '/projects/project8.png'},
   ];
 
-  // Split projects into 3 columns
-  const column1Projects = projects.filter((_, index) => index % 3 === 0);
-  const column2Projects = projects.filter((_, index) => index % 3 === 1);
-  const column3Projects = projects.filter((_, index) => index % 3 === 2);
+  // Split projects into 3 columns for desktop, 2 for tablet, 1 for mobile
+  const getColumnProjects = () => {
+    if (isMobile) {
+      // For mobile, put all projects in one column but duplicate for smooth scrolling
+      return [projects, projects, projects];
+    }
+    // For desktop, split into 3 columns
+    const col1 = projects.filter((_, index) => index % 3 === 0);
+    const col2 = projects.filter((_, index) => index % 3 === 1);
+    const col3 = projects.filter((_, index) => index % 3 === 2);
+    return [col1, col2, col3];
+  };
 
-  // Duplicate projects for seamless infinite scroll (need 3 copies for smooth loop)
-  const duplicateColumn1 = [...column1Projects, ...column1Projects, ...column1Projects];
-  const duplicateColumn2 = [...column2Projects, ...column2Projects, ...column2Projects];
-  const duplicateColumn3 = [...column3Projects, ...column3Projects, ...column3Projects];
+  const [col1Projects, col2Projects, col3Projects] = getColumnProjects();
 
-  // Handle pause on hover/touch
-  const handleMouseEnter = () => setIsPaused(true);
-  const handleMouseLeave = () => setIsPaused(false);
-  const handleTouchStart = () => setIsPaused(true);
-  const handleTouchEnd = () => setIsPaused(false);
+  // Duplicate projects for seamless infinite scroll
+  const duplicateCol1 = [...col1Projects, ...col1Projects, ...col1Projects];
+  const duplicateCol2 = [...col2Projects, ...col2Projects, ...col2Projects];
+  const duplicateCol3 = [...col3Projects, ...col3Projects, ...col3Projects];
+
+  // Handle pause on hover/touch with better mobile support
+  const handleMouseEnter = () => {
+    if (!isMobile) {
+      setIsPaused(true);
+    }
+  };
+  
+  const handleMouseLeave = () => {
+    if (!isMobile) {
+      setIsPaused(false);
+    }
+  };
+  
+  const handleTouchStart = () => {
+    // Only pause on touch for a moment, then resume
+    setIsPaused(true);
+    if (touchTimeoutRef.current) {
+      clearTimeout(touchTimeoutRef.current);
+    }
+  };
+  
+  const handleTouchEnd = () => {
+    // Resume after a short delay on touch end
+    touchTimeoutRef.current = setTimeout(() => {
+      setIsPaused(false);
+    }, 300);
+  };
+
+  // Get the appropriate animation class based on column index
+  const getAnimationClass = (index) => {
+    // Column 1 and 3 go up, Column 2 goes down
+    if (index === 0 || index === 2) {
+      return 'marquee-up';
+    }
+    return 'marquee-down';
+  };
+
+  // Determine grid columns based on device
+  const getGridClass = () => {
+    if (isMobile) return 'marquee-grid-single';
+    return 'marquee-grid';
+  };
 
   return (
     <section className={`marquee-slider ${darkMode ? 'dark' : 'light'}`}>
@@ -42,7 +115,7 @@ const MarqueeSlider = ({ darkMode }) => {
         </div>
 
         {/* Three Column Grid */}
-        <div className="marquee-grid">
+        <div className={getGridClass()}>
           {/* Column 1 - Moving Up */}
           <div 
             className="marquee-column"
@@ -51,8 +124,11 @@ const MarqueeSlider = ({ darkMode }) => {
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
           >
-            <div className={`marquee-vertical marquee-up ${isPaused ? 'paused' : ''}`}>
-              {duplicateColumn1.map((project, index) => (
+            <div 
+              ref={marqueeRef}
+              className={`marquee-vertical ${getAnimationClass(0)} ${isPaused ? 'paused' : ''}`}
+            >
+              {duplicateCol1.map((project, index) => (
                 <div key={`col1-${index}`} className="marquee-card">
                   <div className="marquee-card-image-wrapper">
                     <img 
@@ -61,13 +137,9 @@ const MarqueeSlider = ({ darkMode }) => {
                       className="marquee-card-image"
                       loading="lazy"
                       onError={(e) => {
-                        e.target.src = `https://via.placeholder.com/300x200/1a1a1a/64ffda?text=${project.title}`;
+                        e.target.src = `https://via.placeholder.com/400x300/1a1a1a/64ffda?text=${project.title}`;
                       }}
                     />
-                  </div>
-                  <div className="marquee-card-content">
-                    <h4 className="marquee-card-title">{project.title}</h4>
-                    <p className="marquee-card-description">{project.description}</p>
                   </div>
                 </div>
               ))}
@@ -82,8 +154,11 @@ const MarqueeSlider = ({ darkMode }) => {
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
           >
-            <div className={`marquee-vertical marquee-down ${isPaused ? 'paused' : ''}`}>
-              {duplicateColumn2.map((project, index) => (
+            <div 
+              ref={marqueeRef}
+              className={`marquee-vertical ${getAnimationClass(1)} ${isPaused ? 'paused' : ''}`}
+            >
+              {duplicateCol2.map((project, index) => (
                 <div key={`col2-${index}`} className="marquee-card">
                   <div className="marquee-card-image-wrapper">
                     <img 
@@ -92,13 +167,9 @@ const MarqueeSlider = ({ darkMode }) => {
                       className="marquee-card-image"
                       loading="lazy"
                       onError={(e) => {
-                        e.target.src = `https://via.placeholder.com/300x200/1a1a1a/64ffda?text=${project.title}`;
+                        e.target.src = `https://via.placeholder.com/400x300/1a1a1a/64ffda?text=${project.title}`;
                       }}
                     />
-                  </div>
-                  <div className="marquee-card-content">
-                    <h4 className="marquee-card-title">{project.title}</h4>
-                    <p className="marquee-card-description">{project.description}</p>
                   </div>
                 </div>
               ))}
@@ -113,8 +184,11 @@ const MarqueeSlider = ({ darkMode }) => {
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
           >
-            <div className={`marquee-vertical marquee-up ${isPaused ? 'paused' : ''}`}>
-              {duplicateColumn3.map((project, index) => (
+            <div 
+              ref={marqueeRef}
+              className={`marquee-vertical ${getAnimationClass(2)} ${isPaused ? 'paused' : ''}`}
+            >
+              {duplicateCol3.map((project, index) => (
                 <div key={`col3-${index}`} className="marquee-card">
                   <div className="marquee-card-image-wrapper">
                     <img 
@@ -123,13 +197,9 @@ const MarqueeSlider = ({ darkMode }) => {
                       className="marquee-card-image"
                       loading="lazy"
                       onError={(e) => {
-                        e.target.src = `https://via.placeholder.com/300x200/1a1a1a/64ffda?text=${project.title}`;
+                        e.target.src = `https://via.placeholder.com/400x300/1a1a1a/64ffda?text=${project.title}`;
                       }}
                     />
-                  </div>
-                  <div className="marquee-card-content">
-                    <h4 className="marquee-card-title">{project.title}</h4>
-                    <p className="marquee-card-description">{project.description}</p>
                   </div>
                 </div>
               ))}
