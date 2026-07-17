@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaMusic, FaPause, FaGraduationCap, FaCode, FaAward } from 'react-icons/fa';
+import { FaMusic, FaPause, FaCode, FaLaptop, FaUsers } from 'react-icons/fa';
 
 const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
   return (
@@ -40,7 +40,7 @@ const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
               </div>
               <div className="hero-stat-divider"></div>
               <div className="hero-stat">
-                <FaGraduationCap className="hero-stat-icon" />
+                <FaLaptop className="hero-stat-icon" />
                 <div>
                   <span className="hero-stat-number">10+</span>
                   <span className="hero-stat-label">Projects Delivered</span>
@@ -48,7 +48,7 @@ const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
               </div>
               <div className="hero-stat-divider"></div>
               <div className="hero-stat">
-                <FaAward className="hero-stat-icon" />
+                <FaUsers className="hero-stat-icon" />
                 <div>
                   <span className="hero-stat-number">10+</span>
                   <span className="hero-stat-label">Happy Clients</span>

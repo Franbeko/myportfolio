@@ -237,6 +237,28 @@ body {
 }
 
 /* ============================================
+   IPMC-STYLE FLOATING TAGS ANIMATION
+   ============================================ */
+@keyframes floatTagIPMC {
+  0%, 100% {
+    transform: translate(calc(-50% + var(--tx, 0px)), calc(-50% + var(--ty, 0px))) scale(1) rotate(0deg);
+    opacity: 0.85;
+  }
+  25% {
+    transform: translate(calc(-50% + var(--tx, 0px) + 10px), calc(-50% + var(--ty, 0px) - 10px)) scale(1.08) rotate(2deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(calc(-50% + var(--tx, 0px) - 8px), calc(-50% + var(--ty, 0px) + 8px)) scale(0.92) rotate(-1deg);
+    opacity: 0.7;
+  }
+  75% {
+    transform: translate(calc(-50% + var(--tx, 0px) + 8px), calc(-50% + var(--ty, 0px) + 8px)) scale(1.05) rotate(1deg);
+    opacity: 0.9;
+  }
+}
+
+/* ============================================
    HERO SECTION
    ============================================ */
 .hero {
@@ -345,7 +367,7 @@ body {
 }
 
 /* ============================================
-   HERO STATS - Like IPMC Style
+   HERO STATS
    ============================================ */
 .hero-stats {
   display: flex;
@@ -407,6 +429,9 @@ body {
   background: rgba(0, 0, 0, 0.1);
 }
 
+/* ============================================
+   HERO AVATAR WITH IPMC-STYLE FLOATING TAGS
+   ============================================ */
 .hero-avatar-container {
   flex: 1;
   display: flex;
@@ -415,6 +440,68 @@ body {
   align-items: center;
 }
 
+.avatar-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 320px;
+  height: 320px;
+}
+
+/* Floating Tags Container */
+.floating-tags-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-tag {
+  position: absolute;
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+  background: rgba(100, 255, 218, 0.12);
+  border: 1px solid rgba(100, 255, 218, 0.25);
+  color: #64ffda;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(100, 255, 218, 0.08);
+  pointer-events: none;
+  animation: floatTagIPMC 8s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.floating-tag.dark {
+  background: rgba(100, 255, 218, 0.10);
+  border-color: rgba(100, 255, 218, 0.20);
+  color: #64ffda;
+}
+
+.floating-tag.light {
+  background: rgba(100, 255, 218, 0.15);
+  border-color: rgba(100, 255, 218, 0.30);
+  color: #0a0a0a;
+}
+
+/* Individual tag animation delays */
+.floating-tag:nth-child(1) { animation-delay: 0s; }
+.floating-tag:nth-child(2) { animation-delay: 0.7s; }
+.floating-tag:nth-child(3) { animation-delay: 1.4s; }
+.floating-tag:nth-child(4) { animation-delay: 2.1s; }
+.floating-tag:nth-child(5) { animation-delay: 0.4s; }
+.floating-tag:nth-child(6) { animation-delay: 1.1s; }
+.floating-tag:nth-child(7) { animation-delay: 1.8s; }
+.floating-tag:nth-child(8) { animation-delay: 2.5s; }
+.floating-tag:nth-child(9) { animation-delay: 0.9s; }
+.floating-tag:nth-child(10) { animation-delay: 1.6s; }
+
 .hero-avatar {
   width: 300px;
   height: 300px;
@@ -422,18 +509,20 @@ body {
   object-fit: cover;
   border: 4px solid #64ffda;
   box-shadow: 0 0 60px rgba(100, 255, 218, 0.2);
-}
-
-.avatar-wrapper {
   position: relative;
-  display: inline-block;
+  z-index: 2;
+  margin: 0 auto;
 }
 
+/* Music Overlay */
 .music-overlay {
   margin-top: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 3;
+  width: 100%;
 }
 
 .music-player-mini {
@@ -450,6 +539,7 @@ body {
   font-family: inherit;
   width: 100%;
   min-width: 200px;
+  max-width: 260px;
 }
 
 .hero.dark .music-player-mini {
@@ -542,7 +632,7 @@ section {
 }
 
 /* ============================================
-   MARQUEE SLIDER - VERTICAL 3-COLUMN
+   MARQUEE SLIDER - VERTICAL 3-COLUMN (FULL IMAGE)
    ============================================ */
 .marquee-slider {
   padding: 5rem 2rem;
@@ -633,6 +723,7 @@ section {
   cursor: pointer;
   flex-shrink: 0;
   width: 100%;
+  position: relative;
 }
 
 .marquee-slider.light .marquee-card {
@@ -651,9 +742,10 @@ section {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
+/* Full Image - No padding, covers entire card */
 .marquee-card-image-wrapper {
   width: 100%;
-  height: 160px;
+  height: 100%;
   overflow: hidden;
   position: relative;
   background: #0a0a0a;
@@ -664,40 +756,35 @@ section {
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
+  display: block;
 }
 
 .marquee-card:hover .marquee-card-image {
   transform: scale(1.05);
 }
 
+/* Remove content section completely */
 .marquee-card-content {
-  padding: 1rem 1.2rem;
+  display: none;
 }
 
-.marquee-card-title {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #ffffff;
-  margin-bottom: 0.3rem;
+/* Optional: Add a subtle overlay on hover for visual feedback */
+.marquee-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: 12px;
 }
 
-.marquee-slider.light .marquee-card-title {
-  color: #0a0a0a;
-}
-
-.marquee-card-description {
-  font-size: 0.8rem;
-  color: #a0a0a0;
-  line-height: 1.5;
-  margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.marquee-slider.light .marquee-card-description {
-  color: #666666;
+.marquee-card:hover::after {
+  opacity: 1;
 }
 
 /* ============================================
@@ -2529,7 +2616,7 @@ section {
 }
 
 /* ============================================
-   MARQUEE MOBILE RESPONSIVE
+   MARQUEE MOBILE RESPONSIVE - FULL IMAGE
    ============================================ */
 
 /* Tablet */
@@ -2546,10 +2633,6 @@ section {
 
   .marquee-down {
     animation-duration: 22s;
-  }
-
-  .marquee-card-image-wrapper {
-    height: 140px;
   }
 
   .tech-stack-grid {
@@ -2586,22 +2669,6 @@ section {
 
   .marquee-down {
     animation-duration: 20s;
-  }
-
-  .marquee-card-image-wrapper {
-    height: 200px;
-  }
-
-  .marquee-card-content {
-    padding: 0.8rem 1rem;
-  }
-
-  .marquee-card-title {
-    font-size: 0.9rem;
-  }
-
-  .marquee-card-description {
-    font-size: 0.75rem;
   }
 
   .marquee-vertical {
@@ -3161,23 +3228,6 @@ section {
     animation-duration: 18s;
   }
 
-  .marquee-card-image-wrapper {
-    height: 150px;
-  }
-
-  .marquee-card-content {
-    padding: 0.6rem 0.8rem;
-  }
-
-  .marquee-card-title {
-    font-size: 0.8rem;
-  }
-
-  .marquee-card-description {
-    font-size: 0.7rem;
-    -webkit-line-clamp: 1;
-  }
-
   .marquee-vertical {
     gap: 0.8rem;
   }
@@ -3537,10 +3587,6 @@ section {
 @media (max-width: 360px) {
   .marquee-grid {
     height: 300px;
-  }
-
-  .marquee-card-image-wrapper {
-    height: 120px;
   }
 
   .marquee-up {
