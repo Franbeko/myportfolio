@@ -137,7 +137,7 @@ const About = ({ darkMode }) => {
               </div>
             </div>
             
-            <div className="about-stats">
+            {/* <div className="about-stats">
               <div className="about-stat">
                 <span className="about-stat-number">3+</span>
                 <span className="about-stat-label">Years Experience</span>
@@ -150,7 +150,7 @@ const About = ({ darkMode }) => {
                 <span className="about-stat-number">10+</span>
                 <span className="about-stat-label">Happy Clients</span>
               </div>
-            </div>
+            </div> */}
           </div>
         </motion.div>
       </div>

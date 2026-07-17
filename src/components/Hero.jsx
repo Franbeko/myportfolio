@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaMusic, FaPause } from 'react-icons/fa';
+import { FaMusic, FaPause, FaGraduationCap, FaCode, FaAward } from 'react-icons/fa';
 
 const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
   return (
@@ -14,7 +14,8 @@ const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
           {/* Left side: Text Content */}
           <div className="hero-text">
             <h1 className="hero-title">
-              Hello! 👋 I'm <br /><span className="highlight-text">Francis Kojo Haizel</span>
+              Hello! 👋 I'm <br />
+              <span className="highlight-text">Francis Kojo Haizel</span>
             </h1>
             
             <p className="hero-subtitle">
@@ -27,6 +28,33 @@ const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
             >
               View my work
             </a>
+
+            {/* Stats Section - Like IPMC */}
+            <div className="hero-stats">
+              <div className="hero-stat">
+                <FaCode className="hero-stat-icon" />
+                <div>
+                  <span className="hero-stat-number">3+</span>
+                  <span className="hero-stat-label">Years Experience</span>
+                </div>
+              </div>
+              <div className="hero-stat-divider"></div>
+              <div className="hero-stat">
+                <FaGraduationCap className="hero-stat-icon" />
+                <div>
+                  <span className="hero-stat-number">10+</span>
+                  <span className="hero-stat-label">Projects Delivered</span>
+                </div>
+              </div>
+              <div className="hero-stat-divider"></div>
+              <div className="hero-stat">
+                <FaAward className="hero-stat-icon" />
+                <div>
+                  <span className="hero-stat-number">10+</span>
+                  <span className="hero-stat-label">Happy Clients</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Right side: Large Avatar with Music Player */}
