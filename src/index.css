@@ -387,14 +387,39 @@ body.light-mode {
 
 .hero-content-wrapper {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 4rem;
 }
 
+/* Left side - Text Content */
 .hero-text {
   flex: 1;
   max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 0.5rem;
+}
+
+/* Right side - Avatar Container - Aligned with text */
+.hero-avatar-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 1.5rem;
+}
+
+.avatar-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 350px;
 }
 
 .hero-title {
@@ -450,7 +475,8 @@ body.light-mode {
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
   letter-spacing: 0.5px;
-  margin-bottom: 0;
+  margin-bottom: 2rem;
+  align-self: flex-start;
 }
 
 .hero.dark .view-my-work-btn {
@@ -478,7 +504,7 @@ body.light-mode {
   display: flex;
   align-items: center;
   gap: 2rem;
-  margin-top: 2.5rem;
+  margin-top: 0.5rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -537,21 +563,6 @@ body.light-mode {
 /* ============================================
    HERO AVATAR WITH IPMC-STYLE FLOATING TAGS
    ============================================ */
-.hero-avatar-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.avatar-wrapper {
-  position: relative;
-  display: inline-block;
-  width: 320px;
-  height: 320px;
-}
-
 /* Floating Tags Container */
 .floating-tags-container {
   position: absolute;
@@ -608,8 +619,8 @@ body.light-mode {
 .floating-tag:nth-child(10) { animation-delay: 1.6s; }
 
 .hero-avatar {
-  width: 300px;
-  height: 300px;
+  width: 280px;
+  height: 280px;
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid #64ffda;
@@ -621,7 +632,7 @@ body.light-mode {
 
 /* Music Overlay */
 .music-overlay {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -723,6 +734,278 @@ body.light-mode {
 
 .hero.light .music-player-mini.playing .music-pick {
   color: #64ffda;
+}
+
+/* ============================================
+   RESPONSIVE - HERO SECTION ALIGNMENT
+   ============================================ */
+@media (max-width: 1024px) {
+  .avatar-wrapper {
+    max-width: 300px;
+  }
+  
+  .hero-avatar {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .floating-tag {
+    font-size: 0.75rem;
+    padding: 0.4rem 1rem;
+  }
+}
+
+@media (max-width: 968px) {
+  .hero-content-wrapper {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    text-align: center;
+    padding-top: 0;
+  }
+
+  .view-my-work-btn {
+    align-self: center;
+  }
+
+  .hero-avatar-container {
+    padding-top: 0;
+    margin-top: -1rem;
+  }
+
+  .avatar-wrapper {
+    max-width: 280px;
+  }
+  
+  .hero-avatar {
+    width: 230px;
+    height: 230px;
+  }
+  
+  .floating-tag {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.9rem;
+  }
+  
+  .music-overlay {
+    margin-top: 1.2rem;
+  }
+  
+  .music-player-mini {
+    padding: 0.6rem 1.2rem;
+    min-width: 160px;
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-avatar-container {
+    margin-top: -0.5rem;
+  }
+  
+  .avatar-wrapper {
+    max-width: 240px;
+  }
+  
+  .hero-avatar {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .floating-tags-container {
+    transform: scale(0.85);
+  }
+  
+  .floating-tag {
+    font-size: 0.6rem;
+    padding: 0.3rem 0.7rem;
+  }
+  
+  .music-overlay {
+    margin-top: 1rem;
+  }
+  
+  .music-player-mini {
+    padding: 0.5rem 1rem;
+    min-width: 140px;
+    max-width: 190px;
+    gap: 0.7rem;
+  }
+  
+  .music-icon-mini {
+    font-size: 1rem;
+  }
+  
+  .music-pick {
+    font-size: 0.8rem;
+  }
+  
+  .now-playing-text {
+    font-size: 0.55rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 4rem 1rem;
+  }
+
+  .hero-content-wrapper {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    text-align: center;
+    padding-top: 0;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .view-my-work-btn {
+    align-self: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-avatar-container {
+    padding-top: 0;
+    margin-top: -0.5rem;
+  }
+
+  .avatar-wrapper {
+    max-width: 200px;
+  }
+
+  .hero-avatar {
+    width: 170px;
+    height: 170px;
+  }
+
+  .floating-tags-container {
+    transform: scale(0.7);
+  }
+
+  .floating-tag {
+    font-size: 0.5rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .music-overlay {
+    margin-top: 1rem;
+  }
+
+  .music-player-mini {
+    padding: 0.4rem 0.8rem;
+    min-width: 120px;
+    max-width: 160px;
+    gap: 0.5rem;
+    border-radius: 25px;
+  }
+
+  .music-icon-mini {
+    font-size: 0.9rem;
+  }
+
+  .music-pick {
+    font-size: 0.7rem;
+  }
+
+  .now-playing-text {
+    font-size: 0.5rem;
+  }
+
+  .hero-stats {
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-stat {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.3rem;
+  }
+
+  .hero-stat-icon {
+    font-size: 1.2rem;
+  }
+
+  .hero-stat-number {
+    font-size: 1rem;
+  }
+
+  .hero-stat-label {
+    font-size: 0.65rem;
+  }
+
+  .hero-stat-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-avatar {
+    width: 150px;
+    height: 150px;
+  }
+
+  .avatar-wrapper {
+    max-width: 170px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .floating-tags-container {
+    transform: scale(0.6);
+  }
+
+  .floating-tag {
+    font-size: 0.45rem;
+    padding: 0.15rem 0.5rem;
+  }
+
+  .music-player-mini {
+    padding: 0.35rem 0.7rem;
+    min-width: 100px;
+    max-width: 140px;
+    gap: 0.4rem;
+  }
+
+  .music-icon-mini {
+    font-size: 0.8rem;
+  }
+
+  .music-pick {
+    font-size: 0.6rem;
+  }
+
+  .now-playing-text {
+    font-size: 0.45rem;
+  }
 }
 
 /* ============================================
@@ -3210,7 +3493,7 @@ section.light .section-subtitle {
 
   /* Footer Responsive */
   .footer {
-    padding: 3rem 1.5rem 6rem;
+    padding: 3rem 1.5rem 1.5rem;
   }
 
   .footer-grid {
@@ -3238,10 +3521,6 @@ section.light .section-subtitle {
     text-align: center;
   }
 
-  .footer-links {
-    align-items: center;
-  }
-
   .footer-contact-info {
     align-items: center;
   }
@@ -3254,6 +3533,8 @@ section.light .section-subtitle {
     flex-direction: column;
     text-align: center;
     gap: 0.5rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 
   .projects-section {
@@ -3482,34 +3763,35 @@ section.light .section-subtitle {
     margin-bottom: 1.5rem;
   }
 
-  /* Bottom Nav Responsive - Enlarged on Small Mobile */
+  /* Bottom Nav - ENLARGED MORE on Small Mobile */
   .bottom-nav {
-    bottom: 1.2rem;
-    padding: 0.5rem 0.8rem;
-    border-radius: 40px;
+    bottom: 1.5rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 50px;
   }
 
   .bottom-nav-container {
-    gap: 0.2rem;
+    gap: 0.4rem;
   }
 
   .bottom-nav-link {
-    padding: 0.3rem 0.6rem;
-    border-radius: 25px;
+    padding: 0.5rem 0.9rem;
+    border-radius: 30px;
+    gap: 0.15rem;
   }
 
   .bottom-nav-icon {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
 
   .bottom-nav-label {
-    font-size: 0.5rem;
+    font-size: 0.65rem;
   }
 
   .bottom-nav-link.active::after {
-    width: 14px;
-    height: 2px;
-    bottom: -0.15rem;
+    width: 18px;
+    height: 3px;
+    bottom: -0.25rem;
   }
 
   /* Hero Stats Mobile Small */
@@ -3702,9 +3984,10 @@ section.light .section-subtitle {
     font-size: 0.9rem;
   }
 
-  /* Footer Responsive - Center "Let's Connect" on mobile */
+  /* Footer Responsive - No space at bottom */
   .footer {
-    padding: 2rem 1rem 5.5rem;
+    padding: 2rem 1rem 1.5rem;
+    margin-bottom: 0;
   }
 
   .footer-grid {
@@ -3768,6 +4051,8 @@ section.light .section-subtitle {
     flex-direction: column;
     text-align: center;
     gap: 0.5rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 
   .footer-brand-name {
@@ -3895,29 +4180,29 @@ section.light .section-subtitle {
     min-height: 130px;
   }
 
-  /* Bottom Nav Extra Small */
+  /* Bottom Nav Extra Small - Enlarged */
   .bottom-nav {
-    bottom: 1rem;
-    padding: 0.4rem 0.6rem;
-    border-radius: 30px;
+    bottom: 1.2rem;
+    padding: 0.6rem 0.9rem;
+    border-radius: 40px;
   }
 
   .bottom-nav-link {
-    padding: 0.2rem 0.4rem;
+    padding: 0.4rem 0.7rem;
   }
 
   .bottom-nav-icon {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
   }
 
   .bottom-nav-label {
-    font-size: 0.45rem;
+    font-size: 0.55rem;
   }
 
   .bottom-nav-link.active::after {
-    width: 10px;
-    height: 2px;
-    bottom: -0.1rem;
+    width: 14px;
+    height: 2.5px;
+    bottom: -0.2rem;
   }
 }
 
