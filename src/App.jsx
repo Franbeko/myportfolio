@@ -25,7 +25,6 @@ function App() {
     const audio = audioRef.current;
     if (isPlaying) {
       audio.pause();
-      audio.currentTime = 0;
     } else {
       audio.play();
     }
@@ -35,16 +34,33 @@ function App() {
   useEffect(() => {
     const audio = audioRef.current;
     audio.loop = true;
+    
+    // Handle audio end to reset playing state if needed
+    const handleEnded = () => {
+      setIsPlaying(false);
+    };
+    audio.addEventListener('ended', handleEnded);
+    
     return () => {
       audio.pause();
       audio.currentTime = 0;
+      audio.removeEventListener('ended', handleEnded);
     };
   }, []);
 
   return (
     <div className={`App ${darkMode ? 'dark-mode' : 'light-mode'}`}>
-      <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      <Hero darkMode={darkMode} isPlaying={isPlaying} toggleMusic={toggleMusic} />
+      <Header 
+        darkMode={darkMode} 
+        toggleDarkMode={toggleDarkMode} 
+        isPlaying={isPlaying} 
+        toggleMusic={toggleMusic} 
+      />
+      <Hero 
+        darkMode={darkMode} 
+        isPlaying={isPlaying} 
+        toggleMusic={toggleMusic} 
+      />
       <MarqueeSlider darkMode={darkMode} />
       <Value darkMode={darkMode} />
       <TechStack darkMode={darkMode} />

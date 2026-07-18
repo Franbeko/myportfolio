@@ -116,15 +116,15 @@ const Contact = ({ darkMode }) => {
           >
             {/* Left Column - Text & Button */}
             <div className="contact-left">
-              <h2 className="contact-title">Say Hello 👋</h2>
+              <h2 className="contact-title">Connect with me 🤝</h2>
               <p className="contact-subtitle">
-                I'm always open to new opportunities, ideas, or just a good conversation.
+                I'm always open to new opportunities, exciting projects, and meaningful collaborations. Let's connect and create something amazing!
               </p>
               <button 
                 className="contact-cta-btn"
                 onClick={() => setIsModalOpen(true)}
               >
-                Message Me
+                Work With Me
               </button>
             </div>
 
@@ -168,7 +168,7 @@ const Contact = ({ darkMode }) => {
               </div>
             ) : (
               <>
-                <h3 className="modal-title">Get in Touch</h3>
+                <h3 className="modal-title">Let's Connect</h3>
                 <p className="modal-subtitle">Fill in the form below and I'll get back to you as soon as possible.</p>
                 
                 <form className="modal-form" onSubmit={handleSubmit}>

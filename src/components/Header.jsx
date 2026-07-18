@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { FaMoon, FaSun } from 'react-icons/fa';
+import { FaMoon, FaSun, FaMusic, FaPause } from 'react-icons/fa';
 
-const Header = ({ darkMode, toggleDarkMode }) => {
+const Header = ({ darkMode, toggleDarkMode, isPlaying, toggleMusic }) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -22,6 +22,14 @@ const Header = ({ darkMode, toggleDarkMode }) => {
             alt="Francis" 
             className="header-avatar"
           />
+          {/* Mini Music Button - Now with spinning animation when playing */}
+          <button 
+            className={`header-music-btn ${isPlaying ? 'playing' : ''}`}
+            onClick={toggleMusic}
+            aria-label={isPlaying ? 'Pause music' : 'Play music'}
+          >
+            {isPlaying ? <FaPause className="header-music-icon-spin" /> : <FaMusic />}
+          </button>
         </div>
 
         {/* Right side */}
