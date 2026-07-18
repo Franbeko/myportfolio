@@ -9,10 +9,8 @@
 
 html {
   scroll-behavior: smooth;
-  height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #0a0a0a;
 }
 
 body {
@@ -20,7 +18,6 @@ body {
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
   min-height: 100vh;
-  height: 100%;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -363,14 +360,13 @@ body.light-mode {
    HERO SECTION
    ============================================ */
 .hero {
-  min-height: 100vh;
+  min-height: calc(100vh - 0px);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 5rem 2rem;
   transition: background-color 0.3s ease;
   margin: 0;
-  scroll-margin-top: 0;
 }
 
 .hero.dark {
@@ -739,12 +735,283 @@ body.light-mode {
 }
 
 /* ============================================
+   RESPONSIVE - HERO SECTION ALIGNMENT
+   ============================================ */
+@media (max-width: 1024px) {
+  .avatar-wrapper {
+    max-width: 300px;
+  }
+  
+  .hero-avatar {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .floating-tag {
+    font-size: 0.75rem;
+    padding: 0.4rem 1rem;
+  }
+}
+
+@media (max-width: 968px) {
+  .hero-content-wrapper {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    text-align: center;
+    padding-top: 0;
+  }
+
+  .view-my-work-btn {
+    align-self: center;
+  }
+
+  .hero-avatar-container {
+    padding-top: 0;
+    margin-top: -1rem;
+  }
+
+  .avatar-wrapper {
+    max-width: 280px;
+  }
+  
+  .hero-avatar {
+    width: 230px;
+    height: 230px;
+  }
+  
+  .floating-tag {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.9rem;
+  }
+  
+  .music-overlay {
+    margin-top: 1.2rem;
+  }
+  
+  .music-player-mini {
+    padding: 0.6rem 1.2rem;
+    min-width: 160px;
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-avatar-container {
+    margin-top: -0.5rem;
+  }
+  
+  .avatar-wrapper {
+    max-width: 240px;
+  }
+  
+  .hero-avatar {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .floating-tags-container {
+    transform: scale(0.85);
+  }
+  
+  .floating-tag {
+    font-size: 0.6rem;
+    padding: 0.3rem 0.7rem;
+  }
+  
+  .music-overlay {
+    margin-top: 1rem;
+  }
+  
+  .music-player-mini {
+    padding: 0.5rem 1rem;
+    min-width: 140px;
+    max-width: 190px;
+    gap: 0.7rem;
+  }
+  
+  .music-icon-mini {
+    font-size: 1rem;
+  }
+  
+  .music-pick {
+    font-size: 0.8rem;
+  }
+  
+  .now-playing-text {
+    font-size: 0.55rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 4rem 1rem;
+  }
+
+  .hero-content-wrapper {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    text-align: center;
+    padding-top: 0;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .view-my-work-btn {
+    align-self: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-avatar-container {
+    padding-top: 0;
+    margin-top: -0.5rem;
+  }
+
+  .avatar-wrapper {
+    max-width: 200px;
+  }
+
+  .hero-avatar {
+    width: 170px;
+    height: 170px;
+  }
+
+  .floating-tags-container {
+    transform: scale(0.7);
+  }
+
+  .floating-tag {
+    font-size: 0.5rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .music-overlay {
+    margin-top: 1rem;
+  }
+
+  .music-player-mini {
+    padding: 0.4rem 0.8rem;
+    min-width: 120px;
+    max-width: 160px;
+    gap: 0.5rem;
+    border-radius: 25px;
+  }
+
+  .music-icon-mini {
+    font-size: 0.9rem;
+  }
+
+  .music-pick {
+    font-size: 0.7rem;
+  }
+
+  .now-playing-text {
+    font-size: 0.5rem;
+  }
+
+  .hero-stats {
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-stat {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.3rem;
+  }
+
+  .hero-stat-icon {
+    font-size: 1.2rem;
+  }
+
+  .hero-stat-number {
+    font-size: 1rem;
+  }
+
+  .hero-stat-label {
+    font-size: 0.65rem;
+  }
+
+  .hero-stat-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-avatar {
+    width: 150px;
+    height: 150px;
+  }
+
+  .avatar-wrapper {
+    max-width: 170px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .floating-tags-container {
+    transform: scale(0.6);
+  }
+
+  .floating-tag {
+    font-size: 0.45rem;
+    padding: 0.15rem 0.5rem;
+  }
+
+  .music-player-mini {
+    padding: 0.35rem 0.7rem;
+    min-width: 100px;
+    max-width: 140px;
+    gap: 0.4rem;
+  }
+
+  .music-icon-mini {
+    font-size: 0.8rem;
+  }
+
+  .music-pick {
+    font-size: 0.6rem;
+  }
+
+  .now-playing-text {
+    font-size: 0.45rem;
+  }
+}
+
+/* ============================================
    SECTION COMMON STYLES
    ============================================ */
 section {
   padding: 5rem 2rem;
   margin: 0;
-  scroll-margin-top: 0;
 }
 
 .section-title {
@@ -2416,7 +2683,7 @@ section.light .section-subtitle {
    ============================================ */
 .footer {
   background: #0a0a0a;
-  padding: 3rem 2rem 1.5rem;
+  padding: 4rem 2rem 2rem;
   border-top: 1px solid #1a1a1a;
   margin: 0;
   width: 100%;
@@ -2651,7 +2918,7 @@ section.light .section-subtitle {
    ============================================ */
 .bottom-nav {
   position: fixed;
-  bottom: 1.5rem;
+  bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
@@ -3224,7 +3491,7 @@ section.light .section-subtitle {
 
   /* Footer Responsive */
   .footer {
-    padding: 2.5rem 1.5rem 1.5rem;
+    padding: 3rem 1.5rem 1.5rem;
   }
 
   .footer-grid {
@@ -3447,10 +3714,6 @@ section.light .section-subtitle {
 
 /* Mobile Small */
 @media (max-width: 480px) {
-  .hero {
-    padding: 3rem 1rem 2rem;
-  }
-  
   .marquee-slider {
     padding: 2rem 0.5rem;
     min-height: 400px;
@@ -3619,8 +3882,8 @@ section.light .section-subtitle {
   }
   
   .skill-icon {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     font-size: 0.85rem;
   }
   
@@ -3721,7 +3984,7 @@ section.light .section-subtitle {
 
   /* Footer Responsive */
   .footer {
-    padding: 2rem 1rem 1rem;
+    padding: 2rem 1rem 1.5rem;
     margin-bottom: 0;
   }
 
