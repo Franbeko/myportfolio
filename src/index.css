@@ -3763,7 +3763,7 @@ section.light .section-subtitle {
     margin-bottom: 1.5rem;
   }
 
-  /* Bottom Nav - ENLARGED MORE on Small Mobile */
+  /* Bottom Nav */
   .bottom-nav {
     bottom: 1.5rem;
     padding: 0.7rem 1.2rem;
@@ -3984,7 +3984,7 @@ section.light .section-subtitle {
     font-size: 0.9rem;
   }
 
-  /* Footer Responsive - No space at bottom */
+  /* Footer Responsive */
   .footer {
     padding: 2rem 1rem 1.5rem;
     margin-bottom: 0;
@@ -4180,7 +4180,7 @@ section.light .section-subtitle {
     min-height: 130px;
   }
 
-  /* Bottom Nav Extra Small - Enlarged */
+  /* Bottom Nav Extra Small */
   .bottom-nav {
     bottom: 1.2rem;
     padding: 0.6rem 0.9rem;
