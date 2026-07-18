@@ -29,8 +29,8 @@ const Footer = ({ darkMode }) => {
             <h4 className="footer-column-title">Pages</h4>
             <ul className="footer-links">
               <li><a href="#home">Home</a></li>
-              <li><a href="#projects">Projects</a></li>
               <li><a href="#about">About</a></li>
+              <li><a href="#projects">Projects</a></li>
             </ul>
           </div>
 
@@ -50,7 +50,7 @@ const Footer = ({ darkMode }) => {
             <ul className="footer-contact-info">
               <li>
                 <FaEnvelope className="footer-contact-icon" />
-                <a href="mailto:your@email.com">franciskhhaizel@gmail.com</a>
+                <a href="mailto:franciskhhaizel@gmail.com">franciskhhaizel@gmail.com</a>
               </li>
               <li>
                 <FaMapMarkerAlt className="footer-contact-icon" />
@@ -60,14 +60,14 @@ const Footer = ({ darkMode }) => {
           </div>
         </div>
 
-        <div className="footer-bottom">
+        {/* <div className="footer-bottom">
           <p className="footer-copyright">
             &copy; {new Date().getFullYear()} Francis. All rights reserved.
           </p>
           <p className="footer-credit">
             Crafted with <span className="footer-heart">❤</span> and code
           </p>
-        </div>
+        </div> */}
       </div>
     </footer>
   );
