@@ -62,11 +62,11 @@ const Footer = ({ darkMode }) => {
 
         <div className="footer-bottom">
           <p className="footer-copyright">
-            &copy; {new Date().getFullYear()} Francis. All rights reserved.
+            &copy; {new Date().getFullYear()} Francis Kojo Haizel. All rights reserved.
           </p>
-          <p className="footer-credit">
+          {/* <p className="footer-credit">
             Crafted with <span className="footer-heart">❤</span> and code
-          </p>
+          </p> */}
         </div>
       </div>
     </footer>
