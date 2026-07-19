@@ -182,31 +182,18 @@ body.light-mode {
   animation: headerPulse 2s ease-in-out infinite;
 }
 
-/* Spinning animation for the music icon when playing */
 .header-music-icon-spin {
   animation: headerMusicSpin 2s linear infinite;
 }
 
 @keyframes headerMusicSpin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @keyframes headerPulse {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(100, 255, 218, 0.5);
-  }
-}
-
-.header-music-btn.playing {
-  animation: headerPulse 2s ease-in-out infinite;
+  0%, 100% { box-shadow: 0 0 20px rgba(100, 255, 218, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(100, 255, 218, 0.5); }
 }
 
 /* Light mode */
@@ -296,42 +283,26 @@ body.light-mode {
    VERTICAL MARQUEE ANIMATIONS
    ============================================ */
 @keyframes marqueeUp {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-33.333%);
-  }
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-33.333%); }
 }
 
 @keyframes marqueeDown {
-  0% {
-    transform: translateY(-33.333%);
-  }
-  100% {
-    transform: translateY(0);
-  }
+  0% { transform: translateY(-33.333%); }
+  100% { transform: translateY(0); }
 }
 
 /* ============================================
    HORIZONTAL MARQUEE ANIMATIONS FOR TECH STACK
    ============================================ */
 @keyframes techMarqueeLeft {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 @keyframes techMarqueeRight {
-  0% {
-    transform: translateX(-50%);
-  }
-  100% {
-    transform: translateX(0);
-  }
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }
 
 /* ============================================
@@ -561,7 +532,6 @@ body.light-mode {
 /* ============================================
    HERO AVATAR WITH IPMC-STYLE FLOATING TAGS
    ============================================ */
-/* Floating Tags Container */
 .floating-tags-container {
   position: absolute;
   top: 0;
@@ -604,7 +574,6 @@ body.light-mode {
   color: #0a0a0a;
 }
 
-/* Individual tag animation delays */
 .floating-tag:nth-child(1) { animation-delay: 0s; }
 .floating-tag:nth-child(2) { animation-delay: 0.7s; }
 .floating-tag:nth-child(3) { animation-delay: 1.4s; }
@@ -714,10 +683,6 @@ body.light-mode {
 .music-player-mini.playing .now-playing-text {
   color: #64ffda;
   opacity: 1;
-}
-
-.hero.light .music-player-mini.playing .now-playing-text {
-  color: #64ffda;
 }
 
 .music-pick {
@@ -1186,7 +1151,6 @@ section.light .section-subtitle {
   display: none;
 }
 
-/* Subtle overlay on hover for visual feedback */
 .marquee-card::after {
   content: '';
   position: absolute;
@@ -2679,7 +2643,7 @@ section.light .section-subtitle {
 }
 
 /* ============================================
-   FOOTER (Modern Grid Layout - Centered Columns)
+   FOOTER (Centered Content Layout)
    ============================================ */
 .footer {
   background: #0a0a0a;
@@ -2778,11 +2742,12 @@ section.light .section-subtitle {
   color: #0a0a0a;
 }
 
-/* Footer Columns - Centered */
+/* Footer Columns - Centered Alignment matching content requirements */
 .footer-column {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   gap: 1rem;
 }
 
@@ -2793,6 +2758,8 @@ section.light .section-subtitle {
   text-transform: uppercase;
   letter-spacing: 1px;
   margin: 0;
+  text-align: center;
+  width: 100%;
 }
 
 .footer.light .footer-column-title {
@@ -2830,7 +2797,7 @@ section.light .section-subtitle {
   color: #0a8a7a;
 }
 
-/* Contact Info - Centered */
+/* Contact Info - Clean horizontal flow centered globally */
 .footer-contact-info {
   list-style: none;
   padding: 0;
@@ -2838,15 +2805,20 @@ section.light .section-subtitle {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 0.8rem;
+  width: 100%;
 }
 
 .footer-contact-info li {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.8rem;
   color: #a0a0a0;
   font-size: 0.95rem;
+  width: 100%;
+  text-align: center;
 }
 
 .footer.light .footer-contact-info li {
@@ -3102,8 +3074,6 @@ section.light .section-subtitle {
 /* ============================================
    MARQUEE MOBILE RESPONSIVE - FIXED (SINGLE COLUMN ONLY)
    ============================================ */
-
-/* Tablet */
 @media (max-width: 1024px) {
   .marquee-grid {
     grid-template-columns: 1fr 1fr;
@@ -3124,19 +3094,16 @@ section.light .section-subtitle {
   }
 }
 
-/* Mobile - ONLY SHOW SINGLE COLUMN MOVING UP */
 @media (max-width: 768px) {
   .marquee-slider {
     padding: 3rem 1rem;
     min-height: 500px;
   }
 
-  /* Hide the 3-column grid on mobile */
   .marquee-grid {
     display: none !important;
   }
 
-  /* Show single column grid on mobile */
   .marquee-grid-single {
     display: grid !important;
     grid-template-columns: 1fr;
@@ -3144,18 +3111,15 @@ section.light .section-subtitle {
     gap: 0;
   }
 
-  /* Only show the first column (column 1) on mobile */
   .marquee-grid-single .marquee-column {
     display: block;
   }
 
-  /* Hide columns 2 and 3 on mobile */
   .marquee-grid-single .marquee-column:nth-child(2),
   .marquee-grid-single .marquee-column:nth-child(3) {
     display: none !important;
   }
 
-  /* Single column always moves UP */
   .marquee-grid-single .marquee-up {
     animation-duration: 25s;
   }
@@ -3211,17 +3175,46 @@ section.light .section-subtitle {
     font-size: 0.8rem;
   }
 
-  .hero-title {
-    font-size: 2.5rem;
+  /* Hero Content Wrapper Responsive - Fixed Centering Alignment */
+  .hero-content-wrapper {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 2rem;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
-  .hero-subtitle {
-    font-size: 1rem;
+  .hero-text {
+    max-width: 100% !important;
+    align-items: center !important;
+    text-align: center !important;
   }
 
+  .view-my-work-btn {
+    align-self: center !important;
+  }
+
+  .hero-avatar-container {
+    width: 100% !important;
+    padding-top: 0 !important;
+    margin-top: -1rem;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .avatar-wrapper {
+    max-width: 240px;
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
   .hero-avatar {
-    width: 200px;
-    height: 200px;
+    width: 200px !important;
+    height: 200px !important;
+    margin: 0 auto !important;
+    display: block !important;
   }
 
   .nav-links {
@@ -3232,21 +3225,37 @@ section.light .section-subtitle {
     font-size: 0.8rem;
   }
 
+  .music-overlay {
+    margin-top: 1rem;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
   .music-player-mini {
     padding: 0.5rem 1rem;
     min-width: 140px;
-  }
-  
-  .now-playing-text {
-    font-size: 0.5rem;
-  }
-  
-  .music-pick {
-    font-size: 0.7rem;
+    max-width: 190px;
+    gap: 0.7rem;
   }
   
   .music-icon-mini {
-    font-size: 0.9rem;
+    font-size: 1rem;
+  }
+  
+  .music-pick {
+    font-size: 0.8rem;
+  }
+  
+  .now-playing-text {
+    font-size: 0.55rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
   }
 
   /* Hero Stats Responsive */
@@ -3341,10 +3350,10 @@ section.light .section-subtitle {
     height: 30px;
   }
 
-  /* About Section Responsive */
+  /* About Section Responsive - Matching Hero Sizing Fix */
   .about-memoji {
-    width: 120px;
-    height: 120px;
+    width: 200px !important;
+    height: 200px !important;
   }
 
   .about-text p {
@@ -3458,7 +3467,7 @@ section.light .section-subtitle {
     font-size: 1.3rem;
   }
 
-  /* Bottom Nav Responsive - Enlarged on Mobile */
+  /* Bottom Nav Responsive */
   .bottom-nav {
     bottom: 1.5rem;
     padding: 0.6rem 1.2rem;
@@ -3489,7 +3498,7 @@ section.light .section-subtitle {
     bottom: -0.2rem;
   }
 
-  /* Footer Responsive */
+  /* Footer Responsive - Let's Connect Structural Flow Enforcements */
   .footer {
     padding: 2.5rem 1rem 1.5rem; 
   }
@@ -3498,6 +3507,7 @@ section.light .section-subtitle {
     grid-template-columns: 1fr;
     gap: 1.8rem;
     padding-bottom: 1.8rem;
+    text-align: center !important;
   }
 
   .footer-brand {
@@ -3517,17 +3527,47 @@ section.light .section-subtitle {
   }
 
   .footer-column {
-    align-items: center;
-    text-align: center;
+    align-items: center !important;
+    text-align: center !important;
     gap: 0.6rem;
+    width: 100%;
+  }
+
+  .footer .footer-column:last-child {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .footer .footer-column:last-child .footer-column-title {
+    text-align: center !important;
+    width: 100%;
+  }
+
+  .footer .footer-column:last-child .footer-contact-info {
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100%;
+  }
+
+  .footer .footer-column:last-child .footer-contact-info li {
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .footer-links {
+    align-items: center !important;
   }
 
   .footer-contact-info {
-    align-items: center;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .footer-contact-info li {
-    justify-content: center;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
   .footer-bottom {
@@ -3535,7 +3575,7 @@ section.light .section-subtitle {
     text-align: center;
     gap: 0.6rem;
     padding-top: 1.5rem;
-    padding-bottom: 7.5rem; /* Clears floating navigation pill layout */
+    padding-bottom: 7.5rem;
     margin-bottom: 1rem;
   }
 
@@ -3598,121 +3638,8 @@ section.light .section-subtitle {
     justify-content: center;
   }
 
-  /* Hero Content Wrapper Responsive */
-  .hero-content-wrapper {
-    flex-direction: column;
-    text-align: center;
-    gap: 2rem;
-  }
-
-  .hero-text {
-    max-width: 100%;
-  }
-
-  .hero-avatar {
-    width: 250px;
-    height: 250px;
-  }
-  
-  .music-player-mini {
-    padding: 0.6rem 1.2rem;
-    min-width: 160px;
-  }
-  
-  .music-icon-mini {
-    font-size: 1rem;
-  }
-  
-  .music-pick {
-    font-size: 0.8rem;
-  }
-
-  .tech-stack-card {
-    min-height: 260px;
-  }
-
-  .tech-icons-wrapper {
-    height: 180px;
-  }
-
-  .floating-tech-icon {
-    font-size: 1.4rem;
-    width: 35px;
-    height: 35px;
-  }
-
-  .projects-slider-track {
-    min-height: 420px;
-  }
-  
-  .project-image-container {
-    height: 220px;
-  }
-
-  .contact-wrapper {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    text-align: center;
-  }
-
-  .contact-left {
-    align-items: center;
-  }
-
-  .contact-subtitle {
-    max-width: 100%;
-  }
-
-  .contact-memoji {
-    width: 200px;
-    height: 200px;
-  }
-
-  .contact-memoji-glow {
-    width: 240px;
-    height: 240px;
-  }
-
-  .contact-title {
-    font-size: 2.5rem;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-  }
-
-  .footer-brand {
-    grid-column: span 2;
-  }
-
-  .footer-brand-desc {
-    max-width: 100%;
-  }
-
-  .faq-wrapper {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .faq-left {
-    position: relative;
-    top: 0;
-    align-items: center;
-    text-align: center;
-  }
-
-  .faq-memoji {
-    width: 100px;
-    height: 100px;
-  }
-
-  .faq-left-title {
-    font-size: 1.8rem;
-  }
-
-  .faq-left-divider {
-    margin: 1rem auto;
+  .floating-tags-container {
+    transform: scale(0.85);
   }
 }
 
@@ -3857,10 +3784,10 @@ section.light .section-subtitle {
     height: 30px;
   }
 
-  /* About Section Responsive */
+  /* About Section Responsive - Match Hero Section Sizing Fix */
   .about-memoji {
-    width: 100px;
-    height: 100px;
+    width: 170px !important;
+    height: 170px !important;
   }
 
   .skills-title {
@@ -3986,7 +3913,7 @@ section.light .section-subtitle {
     font-size: 0.9rem;
   }
 
-  /* Footer Responsive */
+  /* Complete Footer Alignment Enforcements */
   .footer {
     padding: 2rem 0.8rem 1.5rem; 
   }
@@ -3998,8 +3925,8 @@ section.light .section-subtitle {
 
   .footer-brand {
     grid-column: span 1;
-    align-items: center;
-    text-align: center;
+    align-items: center !important;
+    text-align: center !important;
   }
 
   .footer-brand-desc {
@@ -4012,39 +3939,46 @@ section.light .section-subtitle {
   }
 
   .footer-column {
-    align-items: center;
-    text-align: center;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100%;
   }
 
-  /* Center the "Let's Connect" section */
   .footer .footer-column:last-child {
-    align-items: center;
-    text-align: center;
+    align-items: center !important;
+    text-align: center !important;
   }
 
   .footer .footer-column:last-child .footer-column-title {
-    text-align: center;
+    text-align: center !important;
+    width: 100%;
   }
 
   .footer .footer-column:last-child .footer-contact-info {
-    align-items: center;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100%;
   }
 
   .footer .footer-column:last-child .footer-contact-info li {
-    justify-content: center;
-    text-align: center;
+    justify-content: center !important;
+    text-align: center !important;
+    align-items: center !important;
   }
 
   .footer-links {
-    align-items: center;
+    align-items: center !important;
   }
 
   .footer-contact-info {
-    align-items: center;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .footer-contact-info li {
-    justify-content: center;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
   .footer-bottom {
@@ -4052,7 +3986,7 @@ section.light .section-subtitle {
     text-align: center;
     gap: 0.4rem;
     padding-top: 1.2rem;
-    padding-bottom: 7.5rem; /* Forces content safe block above fixed button overlays */
+    padding-bottom: 7.5rem;
     margin-bottom: 1rem;
   }
 
@@ -4151,6 +4085,11 @@ section.light .section-subtitle {
   .projects-slider-dots .dot.active {
     width: 24px;
   }
+
+  .hero-avatar {
+    width: 170px !important;
+    height: 170px !important;
+  }
 }
 
 /* Extra Small */
@@ -4205,20 +4144,29 @@ section.light .section-subtitle {
     height: 2.5px;
     bottom: -0.2rem;
   }
+
+  .hero-avatar, .about-memoji {
+    width: 150px !important;
+    height: 150px !important;
+  }
 }
 
 /* ============================================
-   RESPONSIVE
+   RESPONSIVE MODIFIERS
    ============================================ */
 @media (max-width: 968px) {
   .hero-content-wrapper {
     flex-direction: column;
     text-align: center;
     gap: 2rem;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero-text {
     max-width: 100%;
+    align-items: center;
+    text-align: center;
   }
 
   .hero-avatar {
@@ -4229,14 +4177,6 @@ section.light .section-subtitle {
   .music-player-mini {
     padding: 0.6rem 1.2rem;
     min-width: 160px;
-  }
-  
-  .music-icon-mini {
-    font-size: 1rem;
-  }
-  
-  .music-pick {
-    font-size: 0.8rem;
   }
 
   .tech-stack-card {
@@ -4289,7 +4229,7 @@ section.light .section-subtitle {
     font-size: 2.5rem;
   }
 
-  /* Footer Responsive */
+  /* Footer Responsive Layout Centering Updates */
   .footer-grid {
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
