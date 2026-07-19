@@ -60,14 +60,14 @@ const Footer = ({ darkMode }) => {
           </div>
         </div>
 
-        {/* <div className="footer-bottom">
+        <div className="footer-bottom">
           <p className="footer-copyright">
             &copy; {new Date().getFullYear()} Francis. All rights reserved.
           </p>
           <p className="footer-credit">
             Crafted with <span className="footer-heart">❤</span> and code
           </p>
-        </div> */}
+        </div>
       </div>
     </footer>
   );
