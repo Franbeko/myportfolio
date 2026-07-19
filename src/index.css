@@ -3396,7 +3396,6 @@ section.light .section-subtitle {
     justify-content: center;
   }
 
-  /* Layout row for Pages & Info column blocks rendering perfectly side-by-side */
   .footer-grid > .footer-column:nth-of-type(1) {
     grid-column: span 1 !important;
   }
@@ -3405,7 +3404,6 @@ section.light .section-subtitle {
     grid-column: span 1 !important;
   }
 
-  /* Let's Connect cleanly dropped below them spanning full width */
   .footer-grid > .footer-column:last-child {
     grid-column: span 2 !important;
     margin-top: 0.5rem;
