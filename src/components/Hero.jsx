@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaMusic, FaPause, FaCode, FaLaptop, FaUsers } from 'react-icons/fa';
+import { FaMusic, FaPause, FaCode, FaLaptop, FaUsers, FaDownload } from 'react-icons/fa';
 
 const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
   return (
@@ -22,12 +22,23 @@ const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
               I'm a <span className="highlight-text">fullstack developer</span> with 3+ years, with a strong focus on frontend and WordPress development.
             </p>
 
-            <a 
-              href="#projects" 
-              className="view-my-work-btn"
-            >
-              View my work
-            </a>
+            {/* Button Container - Flex row with proper spacing */}
+            <div className="hero-buttons">
+              <a 
+                href="#projects" 
+                className="view-my-work-btn"
+              >
+                View my work
+              </a>
+              <a 
+                href="/resume/Francis_Kojo_Haizel_Resume.pdf.pdf" 
+                download 
+                className="resume-btn"
+              >
+                <FaDownload className="resume-icon" />
+                Download My Resume
+              </a>
+            </div>
 
             {/* Stats Section */}
             <div className="hero-stats">
@@ -50,7 +61,7 @@ const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
               <div className="hero-stat">
                 <FaUsers className="hero-stat-icon" />
                 <div>
-                  <span className="hero-stat-number">10+</span>
+                  <span className="hero-stat-number">15+</span>
                   <span className="hero-stat-label">Happy Clients</span>
                 </div>
               </div>

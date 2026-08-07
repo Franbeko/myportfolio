@@ -22,7 +22,7 @@ const Header = ({ darkMode, toggleDarkMode, isPlaying, toggleMusic }) => {
             alt="Francis" 
             className="header-avatar"
           />
-          {/* Mini Music Button - Now with spinning animation when playing */}
+          {/* Mini Music Button */}
           <button 
             className={`header-music-btn ${isPlaying ? 'playing' : ''}`}
             onClick={toggleMusic}

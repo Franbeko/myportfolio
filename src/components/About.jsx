@@ -136,21 +136,6 @@ const About = ({ darkMode }) => {
                 </a>
               </div>
             </div>
-            
-            {/* <div className="about-stats">
-              <div className="about-stat">
-                <span className="about-stat-number">3+</span>
-                <span className="about-stat-label">Years Experience</span>
-              </div>
-              <div className="about-stat">
-                <span className="about-stat-number">15+</span>
-                <span className="about-stat-label">Projects Delivered</span>
-              </div>
-              <div className="about-stat">
-                <span className="about-stat-number">10+</span>
-                <span className="about-stat-label">Happy Clients</span>
-              </div>
-            </div> */}
           </div>
         </motion.div>
       </div>

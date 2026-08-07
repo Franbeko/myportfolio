@@ -432,6 +432,19 @@ body.light-mode {
   color: #444444;
 }
 
+/* ============================================
+   HERO BUTTONS CONTAINER - PROPER SPACING
+   ============================================ */
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* View My Work Button */
 .view-my-work-btn {
   display: inline-block;
   padding: 0.8rem 2rem;
@@ -444,8 +457,9 @@ body.light-mode {
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
   letter-spacing: 0.5px;
-  margin-bottom: 2rem;
   align-self: flex-start;
+  min-width: 150px;
+  text-align: center;
 }
 
 .hero.dark .view-my-work-btn {
@@ -464,6 +478,48 @@ body.light-mode {
   border-color: #64ffda;
   transform: translateY(-2px);
   box-shadow: 0 5px 20px rgba(100, 255, 218, 0.2);
+}
+
+/* Resume Button */
+.resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 2rem;
+  background: transparent;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  min-width: 180px;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero.dark .resume-btn {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.hero.light .resume-btn {
+  color: #0a0a0a;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.resume-btn:hover {
+  background: #64ffda;
+  color: #0a0a0a;
+  border-color: #64ffda;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(100, 255, 218, 0.2);
+}
+
+.resume-icon {
+  font-size: 1rem;
 }
 
 /* ============================================
@@ -691,8 +747,9 @@ body.light-mode {
   color: #64ffda;
 }
 
+/* Fix: Francis's Pick text color for light mode */
 .hero.light .music-pick {
-  color: #555555;
+  color: #0a0a0a; /* Black text on light mode */
 }
 
 .hero.light .music-player-mini.playing .music-pick {
@@ -732,7 +789,15 @@ body.light-mode {
     padding-top: 0;
   }
 
+  .hero-buttons {
+    justify-content: center;
+  }
+
   .view-my-work-btn {
+    align-self: center;
+  }
+
+  .resume-btn {
     align-self: center;
   }
 
@@ -819,6 +884,25 @@ body.light-mode {
   .hero-subtitle {
     font-size: 1rem;
   }
+
+  /* Hero buttons mobile */
+  .hero-buttons {
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .view-my-work-btn,
+  .resume-btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+    min-width: 130px;
+    flex: 0 1 auto;
+  }
+
+  .resume-btn {
+    min-width: 150px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -847,9 +931,21 @@ body.light-mode {
     margin-bottom: 1.5rem;
   }
 
-  .view-my-work-btn {
-    align-self: center;
-    margin-bottom: 1.5rem;
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    width: 100%;
+  }
+
+  .view-my-work-btn,
+  .resume-btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.85rem;
+    justify-content: center;
+    min-width: unset;
   }
 
   .hero-avatar-container {
@@ -1680,45 +1776,6 @@ section.light .section-subtitle {
   color: #0a8a7a;
 }
 
-.resume-download {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-}
-
-.resume-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding: 0.8rem 2rem;
-  background: transparent;
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: 500;
-  font-size: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-  letter-spacing: 0.5px;
-}
-
-.about-section.light .resume-btn {
-  color: #0a0a0a;
-  border-color: rgba(0, 0, 0, 0.2);
-}
-
-.resume-btn:hover {
-  background: #64ffda;
-  color: #0a0a0a;
-  border-color: #64ffda;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(100, 255, 218, 0.2);
-}
-
-.resume-icon {
-  font-size: 1.1rem;
-}
-
 /* About Stats */
 .about-stats {
   display: grid;
@@ -2133,6 +2190,11 @@ section.light .section-subtitle {
   font-size: 0.95rem;
   color: #64ffda;
   font-weight: 500;
+}
+
+/* Fix: FAQ footer text color for light mode */
+.faq-section.light .faq-left-footer {
+  color: #0a0a0a; /* Black text on light mode */
 }
 
 /* ============================================
@@ -3135,7 +3197,15 @@ section.light .section-subtitle {
     text-align: center !important;
   }
 
+  .hero-buttons {
+    justify-content: center !important;
+  }
+
   .view-my-work-btn {
+    align-self: center !important;
+  }
+
+  .resume-btn {
     align-self: center !important;
   }
 
@@ -3279,11 +3349,6 @@ section.light .section-subtitle {
   .skill-item {
     font-size: 0.9rem;
     padding: 0.5rem 0;
-  }
-  
-  .resume-btn {
-    padding: 0.6rem 1.5rem;
-    font-size: 0.9rem;
   }
   
   .about-stats {
@@ -3617,11 +3682,6 @@ section.light .section-subtitle {
     padding: 0.4rem 0;
     gap: 0.6rem;
   }
-  
-  .resume-btn {
-    padding: 0.5rem 1.2rem;
-    font-size: 0.8rem;
-  }
 
   .faq-memoji {
     width: 80px;
@@ -3833,6 +3893,18 @@ section.light .section-subtitle {
     max-width: 100%;
     align-items: center;
     text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .view-my-work-btn {
+    align-self: center;
+  }
+
+  .resume-btn {
+    align-self: center;
   }
 
   .hero-avatar {
