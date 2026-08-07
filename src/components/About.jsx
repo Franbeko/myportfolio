@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaDownload } from 'react-icons/fa';
 import { 
   FaReact, 
   FaNodeJs, 
@@ -123,17 +122,6 @@ const About = ({ darkMode }) => {
                     ))}
                   </ul>
                 </div>
-              </div>
-
-              <div className="resume-download">
-                <a 
-                  href="/resume/Francis_Kojo_Haizel_Resume.pdf.pdf" 
-                  download 
-                  className="resume-btn"
-                >
-                  <FaDownload className="resume-icon" />
-                  Download My Resume
-                </a>
               </div>
             </div>
           </div>
