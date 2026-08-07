@@ -29,7 +29,7 @@ const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
               View my work
             </a>
 
-            {/* Stats Section - Like IPMC */}
+            {/* Stats Section */}
             <div className="hero-stats">
               <div className="hero-stat">
                 <FaCode className="hero-stat-icon" />
