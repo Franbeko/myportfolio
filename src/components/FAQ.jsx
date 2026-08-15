@@ -14,7 +14,7 @@ const FAQ = ({ darkMode }) => {
     {
       id: 1,
       question: 'What technologies do you specialize in?',
-      answer: 'I specialize in full-stack web development with a strong focus on React, Next.js, Node.js, and WordPress. I work with MongoDB, PhpMyAdmin, Dokploy, and MySQL databases, and have experience with Hostinger, Vercel, Netlify, and other cloud platforms. I also have expertise in PHP, JavaScript, and modern frontend frameworks like Tailwind CSS and Vite.'
+      answer: 'I specialize in full-stack web development with a strong focus on React, Node.js, and WordPress. I work with MongoDB, PhpMyAdmin, and MySQL databases, and have experience with Hostinger, Vercel, Netlify, and other cloud platforms. I also have expertise in PHP, JavaScript, and modern frontend frameworks like Tailwind CSS and Vite.'
     },
     {
       id: 2,

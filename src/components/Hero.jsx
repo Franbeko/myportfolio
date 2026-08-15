@@ -19,7 +19,7 @@ const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
             </h1>
             
             <p className="hero-subtitle">
-              I'm a <span className="highlight-text">fullstack developer</span> with 3+ years, with a strong focus on frontend and WordPress development.
+              I'm a <span className="highlight-text">fullstack developer</span> with 4+ years, with a strong focus on frontend and WordPress development.
             </p>
 
             {/* Button Container - Flex row with proper spacing */}
@@ -45,7 +45,7 @@ const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
               <div className="hero-stat">
                 <FaCode className="hero-stat-icon" />
                 <div>
-                  <span className="hero-stat-number">3+</span>
+                  <span className="hero-stat-number">4+</span>
                   <span className="hero-stat-label">Years Experience</span>
                 </div>
               </div>

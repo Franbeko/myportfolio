@@ -38,6 +38,7 @@ const MarqueeSlider = ({ darkMode }) => {
     { id: 6, image: '/projects/project6.png'},
     { id: 7, image: '/projects/project7.png'},
     { id: 8, image: '/projects/project8.png'},
+    { id: 8, image: '/projects/project9.png'},
   ];
 
   // Split projects into 3 columns for desktop, 2 for tablet, 1 for mobile
@@ -108,10 +109,10 @@ const MarqueeSlider = ({ darkMode }) => {
       <div className="marquee-container">
         {/* Section Header */}
         <div className="marquee-header">
-          <h2 className="section-title">Projects That Define Me</h2>
+          {/* <h2 className="section-title">Projects That Define Me</h2>
           <p className="section-subtitle">
             Each project represents a step in my journey — from concept to deployment
-          </p>
+          </p> */}
         </div>
 
         {/* Three Column Grid */}

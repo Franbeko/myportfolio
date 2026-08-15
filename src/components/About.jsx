@@ -76,7 +76,7 @@ const About = ({ darkMode }) => {
                 to build modern, high-performance websites that are both functional and visually engaging.
               </p>
               <p>
-                With over 3 years of experience, I've worked on a wide range of projects - from 
+                With over 4 years of experience, I've worked on a wide range of projects - from 
                 custom WordPress themes to complex web applications. My approach emphasizes clean code, 
                 performance optimization, and responsive design.
               </p>

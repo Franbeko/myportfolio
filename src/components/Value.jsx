@@ -118,7 +118,7 @@ const Value = ({ darkMode }) => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="section-title">Why Choose Me?</h2>
+          <h2 className="section-title">Why Work With Me?</h2>
           <p className="section-description">Passionate about creating impactful digital solutions.</p>
           
           <div className="value-grid">
