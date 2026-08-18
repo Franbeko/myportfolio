@@ -24,7 +24,7 @@ My personal portfolio website built with React, Vite, and Framer Motion. This po
 - **Framer Motion** - Animations
 - **React Icons** - Icon Library
 - **React Intersection Observer** - Scroll animations
-- **EmailJS / Formspree** - Contact form handling
+- **Formspree** - Contact form handling
 
 ## 📦 Installation
 
