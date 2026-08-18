@@ -63,7 +63,7 @@ const Value = ({ darkMode }) => {
   const values = [
     {
       id: 1,
-      title: 'Over 3+ years of experience',
+      title: 'Over 4+ years of experience',
       icon: '/memojis/francis-memoji.png'
     },
     {

@@ -19,7 +19,7 @@ const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
             </h1>
             
             <p className="hero-subtitle">
-              I'm a <span className="highlight-text">fullstack developer</span> with 4+ years, with a strong focus on frontend and WordPress development.
+              I'm a <span className="highlight-text">fullstack developer</span> with 4+ years of experience, specializing in React, Node.js, and WordPress. I leverage AI to ship faster without compromising quality.
             </p>
 
             {/* Button Container - Flex row with proper spacing */}

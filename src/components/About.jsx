@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { 
-  FaReact, 
-  FaNodeJs, 
-  FaDatabase,  
-  FaJsSquare, 
-  FaPhp, 
+import {
+  FaReact,
+  FaNodeJs,
+  FaDatabase,
+  FaJsSquare,
+  FaPhp,
   FaGithub,
   FaCode,
   FaUsers,
@@ -28,12 +28,12 @@ const About = ({ darkMode }) => {
     { name: 'Node.js', icon: <FaNodeJs /> },
     { name: 'MongoDB', icon: <FaDatabase /> },
     { name: 'JavaScript', icon: <FaJsSquare /> },
-    {name: 'Tailwind CSS', icon: <SiTailwindcss /> },
+    { name: 'Tailwind CSS', icon: <SiTailwindcss /> },
     { name: 'PHP', icon: <FaPhp /> },
     { name: 'MySQL', icon: <SiMysql /> },
     { name: 'PhpMyAdmin', icon: <SiPhpmyadmin /> },
     { name: 'GitHub', icon: <FaGithub /> },
-    { name: 'VS Code', icon: <FaCode />}
+    { name: 'VS Code', icon: <FaCode /> }
   ];
 
   const softSkills = [
@@ -45,9 +45,9 @@ const About = ({ darkMode }) => {
   ];
 
   return (
-    <section 
-      id="about" 
-      className={`about-section ${darkMode ? 'dark' : 'light'}`} 
+    <section
+      id="about"
+      className={`about-section ${darkMode ? 'dark' : 'light'}`}
       ref={ref}
     >
       <div className="about-container">
@@ -58,38 +58,39 @@ const About = ({ darkMode }) => {
         >
           {/* Memoji Image */}
           <div className="about-memoji-container">
-            <img 
-              src="/memojis/francis-memoji.png" 
-              alt="Francis" 
+            <img
+              src="/memojis/francis-memoji.png"
+              alt="Francis"
               className="about-memoji"
             />
           </div>
 
           <h2 className="section-title">About Me</h2>
           <p className="section-subtitle">Get to know me better</p>
-          
+
           <div className="about-content">
             <div className="about-text">
               <p>
-                I'm a <span className="highlight-text">Fullstack Developer</span> with a strong focus on 
-                frontend and WordPress development. I combine technical expertise with creative design 
-                to build modern, high-performance websites that are both functional and visually engaging.
+                I'm a <span className="highlight-text">Fullstack & WordPress Developer</span> with a strong focus on
+                building modern, high-performance web applications. I combine technical expertise with creative design
+                to create digital experiences that are both functional and visually engaging.
               </p>
               <p>
-                With over 4 years of experience, I've worked on a wide range of projects - from 
-                custom WordPress themes to complex web applications. My approach emphasizes clean code, 
-                performance optimization, and responsive design.
+                With over 4 years of experience, I've worked on a wide range of projects, from custom WordPress themes
+                to complex full-stack applications using React, Node.js, and MongoDB. I leverage AI-assisted development
+                to ship faster while maintaining clean, secure, and optimized code.
               </p>
               <p>
-                I believe in creating digital experiences that not only look great but also deliver 
-                real value to users and businesses alike.
+                I believe in creating digital experiences that not only look great but also deliver real value to users
+                and businesses alike. Currently expanding my expertise into cybersecurity to build even more resilient
+                and secure applications.
               </p>
             </div>
 
             {/* Skills Section */}
             <div className="skills-section">
               <h3 className="skills-title">Tech Stack & Expertise</h3>
-              
+
               <div className="skills-grid">
                 {/* Hard Skills Card */}
                 <div className="skills-card">
@@ -106,7 +107,7 @@ const About = ({ darkMode }) => {
                     ))}
                   </ul>
                 </div>
-                
+
                 {/* Soft Skills Card */}
                 <div className="skills-card">
                   <div className="skills-card-header">
