@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaMusic, FaPause, FaCode, FaLaptop, FaUsers, FaDownload } from 'react-icons/fa';
+import { FaMusic, FaPause, FaDownload } from 'react-icons/fa';
 
 const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
   return (
@@ -41,7 +41,7 @@ const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
             </div>
 
             {/* Stats Section */}
-            <div className="hero-stats">
+            {/* <div className="hero-stats">
               <div className="hero-stat">
                 <FaCode className="hero-stat-icon" />
                 <div>
@@ -65,7 +65,7 @@ const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
                   <span className="hero-stat-label">Happy Clients</span>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Right side: Large Avatar with Music Player */}
