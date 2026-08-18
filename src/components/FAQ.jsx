@@ -14,32 +14,32 @@ const FAQ = ({ darkMode }) => {
     {
       id: 1,
       question: 'What technologies do you specialize in?',
-      answer: 'I specialize in full-stack web development with a strong focus on React, Node.js, and WordPress. I work with MongoDB, PhpMyAdmin, and MySQL databases, and have experience with Hostinger, Vercel, Netlify, and other cloud platforms. I also have expertise in PHP, JavaScript, and modern frontend frameworks like Tailwind CSS and Vite.'
+      answer: 'I specialize in full-stack & WordPress development using React, Node.js, and MongoDB. I work with MySQL, PhpMyAdmin, and modern frontend frameworks like Tailwind CSS and Vite. I also leverage AI-assisted development to ship projects faster—without sacrificing code quality. Currently expanding into cybersecurity to build even more secure applications.'
     },
     {
       id: 2,
       question: 'How do you approach a new project?',
-      answer: 'I start by understanding your goals, target audience, and project requirements. I then create a detailed plan with timelines and milestones. During development, I focus on clean code, performance optimization, and responsive design. I keep you involved throughout with regular updates and feedback sessions.'
+      answer: 'I start by understanding your goals, target audience, and technical requirements. I then create a detailed plan with timelines and milestones. During development, I focus on clean code, performance optimization, and responsive design. I use AI tools to accelerate prototyping and development while keeping you involved with regular updates and feedback sessions.'
     },
     {
       id: 3,
       question: 'Do you work with WordPress?',
-      answer: 'Yes! WordPress is one of my core specialties. I develop custom themes, plugins, and full WordPress solutions. I focus on creating optimized, secure, and scalable WordPress sites with clean code and intuitive admin interfaces.'
+      answer: 'Yes! WordPress is one of my core specialties—I\'ve built custom themes, plugins, and full WordPress solutions for businesses. I focus on creating optimized, secure, and scalable WordPress sites with clean code and intuitive admin interfaces. I also integrate custom PHP and MySQL features when needed.'
     },
     {
       id: 4,
       question: 'What is your availability?',
-      answer: 'I\'m currently available for new projects. I work with clients worldwide and can adapt to different time zones. I offer flexible engagement models, whether you need a full project built from scratch or ongoing maintenance and support.'
+      answer: 'I\'m currently available for new projects and freelance opportunities. I work with clients worldwide and can adapt to different time zones. Whether you need a full project built from scratch, ongoing maintenance, or just some WordPress help—I\'m flexible. Let\'s chat about what you need!'
     },
     {
       id: 5,
       question: 'How do you handle responsive design?',
-      answer: 'I follow a mobile-first approach, ensuring your website looks and works perfectly on all devices. I use modern CSS techniques like Flexbox, Grid, and Tailwind CSS to create responsive layouts that adapt seamlessly to different screen sizes.'
+      answer: 'I follow a mobile-first approach, ensuring your website looks and works perfectly on all devices—from smartphones to large desktops. I use modern CSS techniques like Tailwind CSS to create responsive layouts that adapt seamlessly to different screen sizes. Every project I deliver is fully responsive out of the box.'
     },
     {
       id: 6,
       question: 'Do you provide ongoing support after launch?',
-      answer: 'Absolutely! I offer post-launch support and maintenance packages to ensure your website stays up-to-date, secure, and performing optimally. This includes bug fixes, updates, and ongoing improvements as your business grows.'
+      answer: 'Absolutely! I offer post-launch support and maintenance packages to ensure your website stays up-to-date, secure, and performing optimally. This includes bug fixes, security updates, performance monitoring, and ongoing improvements as your business grows. Your success doesn\'t end at launch—it\'s just the beginning.'
     }
   ];
 
@@ -49,8 +49,8 @@ const FAQ = ({ darkMode }) => {
 
   const faqVariants = {
     hidden: { opacity: 0, y: -20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
-    exit: { opacity: 0, y: -20, transition: { duration: 0.2, ease: "easeIn" } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: 'easeOut' } },
+    exit: { opacity: 0, y: -20, transition: { duration: 0.2, ease: 'easeIn' } }
   };
 
   return (
@@ -71,7 +71,7 @@ const FAQ = ({ darkMode }) => {
                 className="faq-memoji"
               />
             </div>
-            <h2 className="faq-left-title">Got Questions? I'm Here to Help!</h2>
+            <h2 className="faq-left-title">Got Questions? <span className="highlight-text">Let's Talk!</span></h2>
             <p className="faq-left-subtitle">
               Find answers to common questions about my work, process, and how we can collaborate.
             </p>

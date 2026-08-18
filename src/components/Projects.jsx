@@ -1,15 +1,36 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { FaExternalLinkAlt, FaGithub, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
+
+// Custom hook for intersection observer
+const useInView = (options = {}) => {
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      setInView(entry.isIntersecting);
+    }, options);
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [options]);
+
+  return [ref, inView];
+};
 
 const Projects = ({ darkMode }) => {
   const [ref, inView] = useInView({
-    triggerOnce: true,
     threshold: 0.1,
+    triggerOnce: true,
   });
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
 
   const projects = [
     {
@@ -42,7 +63,7 @@ const Projects = ({ darkMode }) => {
     {
       id: 4,
       title: 'LiveStocksBroker Investment Platform',
-      description: 'Created using MySQL & WordPress, this platform supports payments and real-timemarket data for investment management.',
+      description: 'Created using MySQL & WordPress, this platform supports payments and real-time market data for investment management.',
       image: '/projects/project4.png',
       tech: ['PHP', 'WordPress', 'PhpMyAdmin', 'MySQL'],
       liveDemo: 'https://livestocksbroker.com/',
@@ -59,51 +80,32 @@ const Projects = ({ darkMode }) => {
     }
   ];
 
-  const nextSlide = () => {
-    setDirection(1);
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
-  };
-
-  const prevSlide = () => {
-    setDirection(-1);
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
-  };
-
-  useEffect(() => {
-    const timer = setInterval(nextSlide, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const slideVariants = {
-    enter: (direction) => ({
-      x: direction > 0 ? 300 : -300,
-      opacity: 0,
-      scale: 0.9
-    }),
-    center: {
-      x: 0,
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
       opacity: 1,
-      scale: 1,
       transition: {
-        duration: 0.5,
-        ease: "easeInOut"
-      }
+        staggerChildren: 0.15,
+      },
     },
-    exit: (direction) => ({
-      x: direction > 0 ? -300 : 300,
-      opacity: 0,
-      scale: 0.9,
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
       transition: {
         duration: 0.5,
-        ease: "easeInOut"
-      }
-    })
+        ease: 'easeOut',
+      },
+    },
   };
 
   return (
-    <section 
-      id="projects" 
-      className={`projects-section ${darkMode ? 'dark' : 'light'}`} 
+    <section
+      id="projects"
+      className={`projects-section ${darkMode ? 'dark' : 'light'}`}
       ref={ref}
     >
       <div className="projects-container">
@@ -113,90 +115,71 @@ const Projects = ({ darkMode }) => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="section-title">Featured Projects</h2>
-          <p className="section-subtitle">Here are some of my recent projects. Each project was carefully crafted with attention to detail, performance, and user experience.</p>
-          
-          <div className="projects-slider-wrapper">
-            <button className="projects-slider-btn prev" onClick={prevSlide} aria-label="Previous project">
-              <FaChevronLeft />
-            </button>
-            
-            <div className="projects-slider-track">
-              <AnimatePresence mode="wait" custom={direction}>
-                <motion.div
-                  key={currentIndex}
-                  custom={direction}
-                  variants={slideVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  className="project-slide"
-                >
-                  <div className="project-card">
-                    <div className="project-image-container">
-                      <img 
-                        src={projects[currentIndex].image} 
-                        alt={projects[currentIndex].title}
-                        className="project-image"
-                        onError={(e) => {
-                          e.target.src = 'https://via.placeholder.com/600x400/1a1a1a/64ffda?text=Project+Image';
-                        }}
-                      />
-                      <div className="project-overlay">
-                        <div className="project-links">
-                          <a 
-                            href={projects[currentIndex].liveDemo} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="project-link live-demo"
-                            title="Live Demo"
-                          >
-                            <FaExternalLinkAlt /> Live Demo
-                          </a>
-                          <a 
-                            href={projects[currentIndex].github} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="project-link github"
-                            title="GitHub Repository"
-                          >
-                            <FaGithub /> Source Code
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="project-info">
-                      <h3 className="project-title">{projects[currentIndex].title}</h3>
-                      <p className="project-description">{projects[currentIndex].description}</p>
-                      <div className="project-tech-stack">
-                        {projects[currentIndex].tech.map((tech, techIndex) => (
-                          <span key={techIndex} className="project-tech-tag">{tech}</span>
-                        ))}
-                      </div>
+          <p className="section-subtitle">
+            Here are some of my recent projects. Each project was carefully crafted with attention to detail, performance, and user experience.
+          </p>
+
+          <motion.div
+            className="projects-grid"
+            variants={containerVariants}
+            initial="hidden"
+            animate={inView ? 'visible' : 'hidden'}
+          >
+            {projects.map((project) => (
+              <motion.div
+                key={project.id}
+                className="project-card"
+                variants={cardVariants}
+                whileHover={{ y: -8 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="project-image-container">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="project-image"
+                    onError={(e) => {
+                      e.target.src = 'https://via.placeholder.com/600x400/1a1a1a/64ffda?text=Project+Image';
+                    }}
+                  />
+                  <div className="project-overlay">
+                    <div className="project-links">
+                      <a
+                        href={project.liveDemo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-link live-demo"
+                        title="Live Demo"
+                      >
+                        <FaExternalLinkAlt /> Live Demo
+                      </a>
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-link github"
+                        title="GitHub Repository"
+                      >
+                        <FaGithub /> Source Code
+                      </a>
                     </div>
                   </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-            
-            <button className="projects-slider-btn next" onClick={nextSlide} aria-label="Next project">
-              <FaChevronRight />
-            </button>
-          </div>
-          
-          <div className="projects-slider-dots">
-            {projects.map((_, index) => (
-              <button
-                key={index}
-                className={`dot ${index === currentIndex ? 'active' : ''}`}
-                onClick={() => {
-                  setDirection(index > currentIndex ? 1 : -1);
-                  setCurrentIndex(index);
-                }}
-                aria-label={`Go to project ${index + 1}`}
-              />
+                </div>
+
+                <div className="project-info">
+                  <h3 className="project-title">{project.title}</h3>
+                  <p className="project-description">{project.description}</p>
+                  <div className="project-tech-stack">
+                    {project.tech.map((tech, techIndex) => (
+                      <span key={techIndex} className="project-tech-tag">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
