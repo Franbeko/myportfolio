@@ -17,22 +17,22 @@ const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
               Hello! 👋 I'm <br />
               <span className="highlight-text">Francis Kojo Haizel</span>
             </h1>
-            
+
             <p className="hero-subtitle">
-              I'm a <span className="highlight-text">fullstack developer</span> with 4+ years of experience, specializing in React, Node.js, and WordPress. I leverage AI to ship faster without compromising quality.
+              I'm a <span className="highlight-text">fullstack & wordpress developer</span> with 4+ years of experience. I leverage AI to ship faster without compromising quality.
             </p>
 
             {/* Button Container - Flex row with proper spacing */}
             <div className="hero-buttons">
-              <a 
-                href="#projects" 
+              <a
+                href="#projects"
                 className="view-my-work-btn"
               >
                 View my work
               </a>
-              <a 
-                href="/resume/Francis_Kojo_Haizel_Resume.pdf.pdf" 
-                download 
+              <a
+                href="/resume/Francis_Kojo_Haizel_Resume.pdf.pdf"
+                download
                 className="resume-btn"
               >
                 <FaDownload className="resume-icon" />
@@ -71,16 +71,16 @@ const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
           {/* Right side: Large Avatar with Music Player */}
           <div className="hero-avatar-container">
             <div className="avatar-wrapper">
-              <img 
-                src="/memojis/francis-memoji.png" 
-                alt="Francis" 
+              <img
+                src="/memojis/francis-memoji.png"
+                alt="Francis"
                 className="hero-avatar"
               />
-              
+
               {/* Music Player Button - Click to Play/Pause */}
               <div className="music-overlay">
-                <button 
-                  className={`music-player-mini ${isPlaying ? 'playing' : ''}`} 
+                <button
+                  className={`music-player-mini ${isPlaying ? 'playing' : ''}`}
                   onClick={toggleMusic}
                   aria-label={isPlaying ? 'Pause music' : 'Play music'}
                 >
