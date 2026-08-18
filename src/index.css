@@ -2705,6 +2705,8 @@ section.light .section-subtitle {
   border-top: 1px solid #1a1a1a;
   margin: 0;
   width: 100%;
+  /* Fix: Add extra padding at bottom to prevent overlap with BottomNav */
+  padding-bottom: 8rem;
 }
 
 .footer.light {
@@ -2951,6 +2953,7 @@ section.light .section-subtitle {
   width: auto;
   max-width: 95%;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  pointer-events: auto;
 }
 
 .bottom-nav.light {
@@ -3033,6 +3036,40 @@ section.light .section-subtitle {
     height: 32px;
     font-size: 0.8rem;
   }
+
+  .bottom-nav {
+    bottom: 1.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    z-index: 1000;
+  }
+
+  .bottom-nav-container {
+    gap: 0.3rem;
+  }
+
+  .bottom-nav-link {
+    padding: 0.4rem 0.8rem;
+    border-radius: 30px;
+    gap: 0.1rem;
+  }
+
+  .bottom-nav-link.active::after {
+    width: 16px;
+    height: 2.5px;
+    bottom: -0.2rem;
+  }
+
+  /* Fix: Add more bottom padding on mobile */
+  .footer {
+    padding: 2.5rem 1rem 1.5rem;
+    padding-bottom: 10rem;
+  }
+
+  .footer-bottom {
+    padding-bottom: 7.5rem;
+    margin-bottom: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -3041,8 +3078,65 @@ section.light .section-subtitle {
     height: 28px;
     font-size: 0.7rem;
   }
+
+  .bottom-nav {
+    bottom: 1.5rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 50px;
+  }
+
+  .bottom-nav-container {
+    gap: 0.4rem;
+  }
+
+  .bottom-nav-link {
+    padding: 0.5rem 0.9rem;
+    border-radius: 30px;
+    gap: 0.15rem;
+  }
+
+  .bottom-nav-link.active::after {
+    width: 18px;
+    height: 3px;
+    bottom: -0.25rem;
+  }
+
+  .footer {
+    padding: 2rem 0.8rem 1.5rem;
+    padding-bottom: 10rem;
+  }
+
+  .footer-bottom {
+    padding-bottom: 7.5rem;
+    margin-bottom: 1rem;
+  }
 }
 
+@media (max-width: 360px) {
+  .bottom-nav {
+    bottom: 1.2rem;
+    padding: 0.6rem 0.9rem;
+    border-radius: 40px;
+  }
+
+  .bottom-nav-link {
+    padding: 0.4rem 0.7rem;
+  }
+
+  .bottom-nav-link.active::after {
+    width: 14px;
+    height: 2.5px;
+    bottom: -0.2rem;
+  }
+
+  .footer {
+    padding-bottom: 10rem;
+  }
+}
+
+/* ============================================
+   ADDITIONAL RESPONSIVE FIXES (From Original)
+   ============================================ */
 @media (max-width: 768px) {
   .tech-stack-section {
     padding: 3rem 1rem;
@@ -3416,33 +3510,12 @@ section.light .section-subtitle {
     padding: 1.8rem;
   }
 
-  .bottom-nav {
-    bottom: 1.5rem;
-    padding: 0.6rem 1.2rem;
-    border-radius: 50px;
-  }
-
-  .bottom-nav-container {
-    gap: 0.3rem;
-  }
-
-  .bottom-nav-link {
-    padding: 0.4rem 0.8rem;
-    border-radius: 30px;
-    gap: 0.1rem;
-  }
-
-  .bottom-nav-link.active::after {
-    width: 16px;
-    height: 2.5px;
-    bottom: -0.2rem;
-  }
-
   /* ============================================
      UPDATED MOBILE FOOTER ENGINE
      ============================================ */
   .footer {
-    padding: 2.5rem 1rem 1.5rem; 
+    padding: 2.5rem 1rem 1.5rem;
+    padding-bottom: 10rem;
   }
 
   .footer-grid {
@@ -3511,7 +3584,7 @@ section.light .section-subtitle {
   }
 
   .footer-bottom {
-    flex-direction: column-reverse; 
+    flex-direction: column-reverse;
     text-align: center;
     gap: 0.6rem;
     padding-top: 1.5rem;
@@ -3560,28 +3633,6 @@ section.light .section-subtitle {
 
   .marquee-header {
     margin-bottom: 1.5rem;
-  }
-
-  .bottom-nav {
-    bottom: 1.5rem;
-    padding: 0.7rem 1.2rem;
-    border-radius: 50px;
-  }
-
-  .bottom-nav-container {
-    gap: 0.4rem;
-  }
-
-  .bottom-nav-link {
-    padding: 0.5rem 0.9rem;
-    border-radius: 30px;
-    gap: 0.15rem;
-  }
-
-  .bottom-nav-link.active::after {
-    width: 18px;
-    height: 3px;
-    bottom: -0.25rem;
   }
 
   .hero-stats {
@@ -3719,7 +3770,8 @@ section.light .section-subtitle {
   }
 
   .footer {
-    padding: 2rem 0.8rem 1.5rem; 
+    padding: 2rem 0.8rem 1.5rem;
+    padding-bottom: 10rem;
   }
 
   .footer-grid {
@@ -3767,22 +3819,6 @@ section.light .section-subtitle {
   .marquee-card {
     border-radius: 6px;
     min-height: 130px;
-  }
-
-  .bottom-nav {
-    bottom: 1.2rem;
-    padding: 0.6rem 0.9rem;
-    border-radius: 40px;
-  }
-
-  .bottom-nav-link {
-    padding: 0.4rem 0.7rem;
-  }
-
-  .bottom-nav-link.active::after {
-    width: 14px;
-    height: 2.5px;
-    bottom: -0.2rem;
   }
 
   .hero-avatar, .about-memoji {
