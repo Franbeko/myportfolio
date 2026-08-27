@@ -1414,12 +1414,12 @@ section.light .section-subtitle {
    TECH STACK SECTION - ICON CLOUD
    ============================================ */
 .tech-stack-section {
-  padding: 5rem 2rem;
+  padding: 4rem 2rem 2.5rem;
   transition: background-color 0.3s ease;
   margin: 0;
   overflow: hidden;
   position: relative;
-  min-height: 600px;
+  min-height: auto;
 }
 
 .tech-stack-section.dark {
@@ -1465,7 +1465,7 @@ section.light .section-subtitle {
 
 .icon-cloud-wrapper canvas {
   width: 100% !important;
-  max-width: 500px;
+  max-width: 640px;
   height: auto !important;
   aspect-ratio: 1/1;
   border-radius: 12px;
@@ -1473,7 +1473,7 @@ section.light .section-subtitle {
 
 .tech-stack-footer {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 1.2rem;
 }
 
 .tech-stack-footer-link {
@@ -1519,7 +1519,7 @@ section.light .section-subtitle {
    ABOUT SECTION
    ============================================ */
 .about-section {
-  padding: 5rem 2rem;
+  padding: 2.5rem 2rem 5rem;
   transition: background-color 0.3s ease;
   margin: 0;
 }
@@ -1568,7 +1568,7 @@ section.light .section-subtitle {
   width: 80px;
   height: 2px;
   background: #64ffda;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
   border-radius: 2px;
   opacity: 0.6;
 }
@@ -2991,7 +2991,7 @@ section.light .section-subtitle {
     margin-bottom: 1rem;
   }
   .icon-cloud-wrapper canvas {
-    max-width: 350px !important;
+    max-width: 460px !important;
   }
   .marquee-grid {
     display: none !important;
@@ -3038,7 +3038,7 @@ section.light .section-subtitle {
     margin-bottom: 1rem;
   }
   .icon-cloud-wrapper canvas {
-    max-width: 280px !important;
+    max-width: 380px !important;
   }
   .marquee-card {
     min-height: 160px;
@@ -3063,7 +3063,7 @@ section.light .section-subtitle {
     padding-bottom: 10rem;
   }
   .icon-cloud-wrapper canvas {
-    max-width: 220px !important;
+    max-width: 320px !important;
   }
   .marquee-card {
     min-height: 130px;
