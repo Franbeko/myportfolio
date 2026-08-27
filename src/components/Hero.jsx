@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaMusic, FaPause, FaDownload } from 'react-icons/fa';
+import { ShimmerButton } from '@/components/ui/shimmer-button';
 
 const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
   return (
@@ -11,7 +12,6 @@ const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
           transition={{ duration: 0.8 }}
           className="hero-content-wrapper"
         >
-          {/* Left side: Text Content */}
           <div className="hero-text">
             <h1 className="hero-title">
               Hello! 👋 I'm <br />
@@ -22,53 +22,34 @@ const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
               I'm a <span className="highlight-text">fullstack & wordpress developer</span> with 4+ years of experience. I leverage AI to ship faster without compromising quality.
             </p>
 
-            {/* Button Container - Flex row with proper spacing */}
             <div className="hero-buttons">
-              <a
-                href="#projects"
+              <ShimmerButton
                 className="view-my-work-btn"
+                background="#64ffda"
+                shimmerColor="#ffffff"
+                shimmerSize="0.05em"
               >
-                View my work
-              </a>
-              <a
-                href="/resume/Francis_Kojo_Haizel_Resume.pdf.pdf"
-                download
+                <a href="#projects" className="shimmer-btn-text">View my work</a>
+              </ShimmerButton>
+              <ShimmerButton
                 className="resume-btn"
+                background="#64ffda"
+                shimmerColor="#ffffff"
+                shimmerSize="0.05em"
               >
-                <FaDownload className="resume-icon" />
-                Download My Resume
-              </a>
+                <a
+                  href="/resume/Francis_Kojo_Haizel_Resume.pdf.pdf"
+                  download
+                  className="shimmer-btn-text"
+                  style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}
+                >
+                  <FaDownload className="resume-icon" />
+                  Download My Resume
+                </a>
+              </ShimmerButton>
             </div>
-
-            {/* Stats Section */}
-            {/* <div className="hero-stats">
-              <div className="hero-stat">
-                <FaCode className="hero-stat-icon" />
-                <div>
-                  <span className="hero-stat-number">4+</span>
-                  <span className="hero-stat-label">Years Experience</span>
-                </div>
-              </div>
-              <div className="hero-stat-divider"></div>
-              <div className="hero-stat">
-                <FaLaptop className="hero-stat-icon" />
-                <div>
-                  <span className="hero-stat-number">10+</span>
-                  <span className="hero-stat-label">Projects Delivered</span>
-                </div>
-              </div>
-              <div className="hero-stat-divider"></div>
-              <div className="hero-stat">
-                <FaUsers className="hero-stat-icon" />
-                <div>
-                  <span className="hero-stat-number">15+</span>
-                  <span className="hero-stat-label">Happy Clients</span>
-                </div>
-              </div>
-            </div> */}
           </div>
 
-          {/* Right side: Large Avatar with Music Player */}
           <div className="hero-avatar-container">
             <div className="avatar-wrapper">
               <img
@@ -77,7 +58,6 @@ const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
                 className="hero-avatar"
               />
 
-              {/* Music Player Button - Click to Play/Pause */}
               <div className="music-overlay">
                 <button
                   className={`music-player-mini ${isPlaying ? 'playing' : ''}`}

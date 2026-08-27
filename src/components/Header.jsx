@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FaMoon, FaSun, FaMusic, FaPause } from 'react-icons/fa';
+import { ShimmerButton } from '@/components/ui/shimmer-button';
 
 const Header = ({ darkMode, toggleDarkMode, isPlaying, toggleMusic }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -15,14 +16,12 @@ const Header = ({ darkMode, toggleDarkMode, isPlaying, toggleMusic }) => {
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''} ${darkMode ? 'dark' : 'light'}`}>
       <nav className="nav-container">
-        {/* Left side */}
         <div className="header-left">
           <img 
             src="/memojis/francis-memoji.png"
             alt="Francis" 
             className="header-avatar"
           />
-          {/* Mini Music Button */}
           <button 
             className={`header-music-btn ${isPlaying ? 'playing' : ''}`}
             onClick={toggleMusic}
@@ -32,19 +31,25 @@ const Header = ({ darkMode, toggleDarkMode, isPlaying, toggleMusic }) => {
           </button>
         </div>
 
-        {/* Right side */}
         <div className="header-right">
           <button className="dark-mode-toggle" onClick={toggleDarkMode}>
             {darkMode ? <FaSun /> : <FaMoon />}
           </button>
-          <a 
-            href="https://www.linkedin.com/in/francis-haizel-373b96265/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <ShimmerButton
             className="header-connect-btn"
+            background="#64ffda"
+            shimmerColor="#ffffff"
+            shimmerSize="0.05em"
           >
-            Connect
-          </a>
+            <a 
+              href="https://www.linkedin.com/in/francis-haizel-373b96265/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="shimmer-btn-text"
+            >
+              Connect
+            </a>
+          </ShimmerButton>
         </div>
       </nav>
     </header>

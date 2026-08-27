@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaTimes, FaPaperPlane, FaCheckCircle } from 'react-icons/fa';
+import { ShimmerButton } from '@/components/ui/shimmer-button';
 
 const Contact = ({ darkMode }) => {
   const [ref, inView] = useInView({
@@ -19,13 +20,11 @@ const Contact = ({ darkMode }) => {
   const [errors, setErrors] = useState({});
   const modalRef = useRef(null);
 
-  // Formspree form ID
   const FORMSPREE_ID = 'xpqvzakj';
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    // Clear error for this field when user types
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
@@ -43,11 +42,8 @@ const Contact = ({ darkMode }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     if (!validateForm()) return;
-    
     setIsSubmitting(true);
-    
     try {
       const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: 'POST',
@@ -65,7 +61,6 @@ const Contact = ({ darkMode }) => {
       if (response.ok) {
         setIsSuccess(true);
         setFormData({ name: '', email: '', message: '' });
-        // Close modal after 2 seconds
         setTimeout(() => {
           setIsModalOpen(false);
           setIsSuccess(false);
@@ -81,7 +76,6 @@ const Contact = ({ darkMode }) => {
     }
   };
 
-  // Close modal when clicking outside
   const handleOutsideClick = (e) => {
     if (modalRef.current && !modalRef.current.contains(e.target)) {
       setIsModalOpen(false);
@@ -92,7 +86,6 @@ const Contact = ({ darkMode }) => {
     }
   };
 
-  // Prevent body scroll when modal is open
   useEffect(() => {
     if (isModalOpen) {
       document.body.style.overflow = 'hidden';
@@ -114,21 +107,22 @@ const Contact = ({ darkMode }) => {
             transition={{ duration: 0.6 }}
             className="contact-wrapper"
           >
-            {/* Left Column - Text & Button */}
             <div className="contact-left">
               <h2 className="contact-title">Connect with me 🤝</h2>
               <p className="contact-subtitle">
                 I'm always open to new opportunities, exciting projects, and meaningful collaborations. Let's connect and create something amazing!
               </p>
-              <button 
+              <ShimmerButton
                 className="contact-cta-btn"
+                background="#64ffda"
+                shimmerColor="#ffffff"
+                shimmerSize="0.05em"
                 onClick={() => setIsModalOpen(true)}
               >
-                Work With Me
-              </button>
+                <span className="shimmer-btn-text">Work With Me</span>
+              </ShimmerButton>
             </div>
 
-            {/* Right Column - Memoji Image */}
             <div className="contact-right">
               <div className="contact-memoji-container">
                 <img 
@@ -143,7 +137,6 @@ const Contact = ({ darkMode }) => {
         </div>
       </section>
 
-      {/* Modal Popup */}
       {isModalOpen && (
         <div className="modal-overlay" onClick={handleOutsideClick}>
           <div className="modal-content" ref={modalRef}>
