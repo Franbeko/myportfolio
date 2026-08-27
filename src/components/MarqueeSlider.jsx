@@ -56,10 +56,10 @@ const MarqueeSlider = ({ darkMode }) => {
           transition={{ duration: 0.6 }}
           className="marquee-header"
         >
-          <h2 className="section-title">Projects That Define Me</h2>
+          {/* <h2 className="section-title">Projects That Define Me</h2>
           <p className="section-subtitle">
             Each project represents a step in my journey — from concept to deployment
-          </p>
+          </p> */}
         </motion.div>
 
         <div className="marquee-grid">
