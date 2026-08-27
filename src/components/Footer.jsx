@@ -53,6 +53,10 @@ const Footer = ({ darkMode }) => {
                 <a href="mailto:franciskhhaizel@gmail.com">franciskhhaizel@gmail.com</a>
               </li>
               <li>
+                <FaEnvelope className="footer-contact-icon" />
+                <a href="mailto:kojotechsolutions@gmail.com">kojotechsolutions@gmail.com</a>
+              </li>
+              <li>
                 <FaMapMarkerAlt className="footer-contact-icon" />
                 <span>Accra, Ghana</span>
               </li>
