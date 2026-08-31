@@ -19,7 +19,7 @@ const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
             </h1>
 
             <p className="hero-subtitle">
-              I'm a <span className="highlight-text">fullstack & wordpress developer</span> with 4+ years of experience. I leverage AI to ship faster without compromising quality.
+              I'm a <span className="highlight-text">fullstack & wordpress developer</span> with over 4 years of experience. I leverage AI to ship faster without compromising quality.
             </p>
 
             <div className="hero-buttons">
