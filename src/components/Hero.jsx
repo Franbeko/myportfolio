@@ -38,7 +38,7 @@ const Hero = ({ darkMode, isPlaying, toggleMusic }) => {
                 shimmerSize="0.05em"
               >
                 <a
-                  href="/resume/Francis_Kojo_Haizel_Resume.pdf.pdf"
+                  href="/resume/Francis_Kojo_Haizel_Resume.pdf"
                   download
                   className="shimmer-btn-text"
                   style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}
